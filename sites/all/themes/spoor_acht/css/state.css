@@ -84,10 +84,12 @@
     float: right;
   }
   #contact {
+    display: block;
     margin-right: -2px;
     position: fixed;
     right: 0;
     top: 40px;
+    z-index: 20;
   }
   body.logged-in #contact {
     top: 160px;
@@ -179,6 +181,9 @@
   }
 
   /* Contact */
+  #toggle-contact {
+    display: none;
+  }
   #contact #contact-close {
     background: url(../images/button-contact-close.png) left top no-repeat;
     text-indent: -9999px;
@@ -193,6 +198,7 @@
     cursor: pointer;
   }
   #contact .block-toggle-contact {
+    display: block;
     background-image: url(../images/contact_bg.png);
     float: left;
     margin: 93px -5px 0 0;
@@ -253,10 +259,12 @@
   }
   #contact .block-webform .ds-2col > .group-left {
     width: 30.6666%;
+    float: left;
   }
   #contact .block-webform .ds-2col > .group-right {
     border-left: 1px solid #b7b7b7;
     width: 65%;
+    float: left;
   }
   #contact .block-webform .ds-2col > .group-left > div {
     padding: 0 20px 0 15px;

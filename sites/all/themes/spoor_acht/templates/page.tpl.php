@@ -16,11 +16,6 @@
             <?php print render($page['language']); ?>
           </div>
         <?php endif; ?>
-        <?php if ($page['contact']): ?>
-          <div id="contact" class="clearfix">
-            <?php print render($page['contact']); ?>
-          </div>
-        <?php endif ?>
         <?php if ($page['search']): ?>
           <div id="search" class="clearfix">
             <?php print render($page['search']); ?>
@@ -37,6 +32,11 @@
     </div>
   </div>
   <div class="l-container-wide hidden clearfix l-move-under">
+    <?php if ($page['contact']): ?>
+      <div id="contact" class="clearfix">
+        <?php print render($page['contact']); ?>
+      </div>
+    <?php endif ?>
     <div id="mobile-toolbar" class="l-container-wide hidden clearfix"></div>
 
     <div id="content-wrapper" class="l-container-wide clearfix">

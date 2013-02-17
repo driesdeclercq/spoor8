@@ -70,6 +70,75 @@
   background: transparent url(../images/toolbar_button_contact.png) left top no-repeat;
 }
 
+/* Contact */
+#contact {
+  display: none;
+}
+#contact #contact-close {
+  background: url(../images/button-contact-close.png) left top no-repeat;
+  text-indent: -9999px;
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  top: 22px;
+  right: 24px;
+}
+#contact #contact-close:hover {
+  background-position: left bottom;
+  cursor: pointer;
+}
+#contact .block-toggle-contact {
+  display: none;
+}
+#contact .block-webform {
+  background-image: url(../images/contact_bg.png);
+}
+#contact .block-toggle-contact .content {
+  border-top: 1px solid rgba(156,156,156,0.1);
+  box-shadow: -1px 1px 2px rgba(0,0,0,0.2);
+  margin-right: 5px;
+  padding: 3px 2px;
+  -webkit-border-top-left-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -moz-border-radius-topleft: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+#contact .block-webform .content {
+}
+#contact .block-toggle-contact .content div {
+  background: transparent url(../images/button_contact.png) left top no-repeat;
+  cursor: pointer;
+  font-size: 11px;
+  margin: 0;
+  display: block;
+  height: 73px;
+  text-indent: -99999px;
+  width: 29px;
+}
+#contact .block-webform .ds-2col > div {
+  margin: 10px 0;
+}
+#contact .block-webform .ds-2col h3 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#contact .block-webform .ds-2col > .group-left,
+#contact .block-webform .ds-2col > .group-right {
+  width: 100%;
+  float: none;
+}
+#contact .block-webform .ds-2col > .group-left > div {
+  padding: 0 20px 0 15px;
+}
+#contact .block-webform .ds-2col > .group-right > div {
+  padding: 0 20px 0 34px;
+}
+#contact .block-webform .ds-2col .field {
+  margin-bottom: 0;
+}
+
 /* Mobile toolbar container */
 #mobile-toolbar.hidden {
   display: none;
@@ -77,11 +146,16 @@
 
 /* Show search or menu on mobile toolbar container. */
 #mobile-toolbar.navigation .region-navigation,
-#mobile-toolbar.search .region-search {
+#mobile-toolbar.search .region-search,
+#mobile-toolbar.contact .region-contact {
   display: block;
 }
 #mobile-toolbar.search .region-navigation,
-#mobile-toolbar.navigation .region-search {
+#mobile-toolbar.navigation .region-search,
+#mobile-toolbar.search .region-contact,
+#mobile-toolbar.navigation .region-contact,
+#mobile-toolbar.contact .region-navigation,
+#mobile-toolbar.contact .region-search{
   display: none;
 }
 

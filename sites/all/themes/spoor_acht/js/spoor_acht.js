@@ -1,12 +1,4 @@
 (function ($, Drupal) {
-  Drupal.behaviors.contactFieldLabels = {
-    attach: function (context) {
-      $("#contact label").inFieldLabels({
-        fadeOpacity: 0.2,
-        fadeDuration: 100
-      });
-    }
-  };
 
   /**
    * Initialize objects used later.
@@ -18,7 +10,7 @@
 
   Drupal.mobileToolbar = {};
   Drupal.mobileToolbar.loaded = false;
-  Drupal.mobileToolbar.types = 'search navigation';
+  Drupal.mobileToolbar.types = 'search navigation contact';
 
   $(document).ready(function() {
     var closeButton = $('<div id="contact-close">close</div>').click(function(){
@@ -61,8 +53,20 @@
     }
   );
 
-  Drupal.mobileToolbar.initialise = function() {
+/*
+ * Inlfield labels;
+ */
+  Drupal.behaviors.contactFieldLabels = {
+    attach: function (context) {
+      $("#contact label").inFieldLabels({
+        fadeOpacity: 0.2,
+        fadeDuration: 100
+      });
+    }
+  };
 
+  Drupal.mobileToolbar.initialise = function() {
+    // Add the toggle buttons for search and menu to the toolbar.
     var typesArray = Drupal.mobileToolbar.types.split(' ');
     var type = '';
     var buttonDiv = '';
@@ -70,16 +74,24 @@
 
     for (var i = 0; i < typesArray.length; i++) {
       type = typesArray[i];
-      // Prepare toolbar button html.
-      toolbarHtml += $('#' + type).html();
+      // Prepare toolbar button html. Do not add contact-html.
+      // Contact cannot be duplicate tor it will brake functionality.
+      if (type != 'contact') {
+        toolbarHtml += $('#' + type).html();
+      }
+
       // Create the toggle buttons for mobile layout and add to their respective
       // regions.
       buttonDiv = $("<div>")
         .addClass('toolbar-button-wrapper')
         .attr('id', 'toggle-' + type)
-        .html('<div class="toolbar-button" id="btn-' + type + '">Toggle ' + type + '</div>')
-        .appendTo($('#' + type))
-        .hide();
+        .html('<div class="toolbar-button" id="btn-' + type + '">Toggle ' + type + '</div>');
+      if (type != 'contact') {
+         buttonDiv.appendTo($('#' + type)).hide();
+      }
+      else {
+        buttonDiv.appendTo($('#toolbar')).hide();
+      }
     }
 
     // Fill mobile toolbar.
@@ -90,12 +102,16 @@
     // Add menu toggle functionality.
     $('.toolbar-button').click(function() {
       var currentToggle = $(this).attr('id');
-      console.log($(this));
       var className = currentToggle.substr(4);
       // The mobile toolbar is hidden, show it and set toggled type class.
       if ($("#mobile-toolbar").hasClass('hidden')) {
         $("#mobile-toolbar").addClass(className)
           .removeClass('hidden');
+        // If type == contact: show.
+console.log("ta" + className);
+        if(className == 'contact') {
+          $("#contact").show();
+        }
       }
       else {
         // Toggled item is visible, hide the mobile toolbar.
@@ -103,12 +119,24 @@
           $("#mobile-toolbar")
             .removeClass(Drupal.mobileToolbar.types)
             .addClass('hidden');
+console.log("da" + className);
+          // if  type == contact: hide.
+          if(className == 'contact') {
+            $("#contact").hide();
+          }
         }
         else {
+          // Switch what is visible.
           // Remove all type classes from mobile toolbar and set toggled type
           // class.
           $("#mobile-toolbar").removeClass(Drupal.mobileToolbar.types)
             .addClass(className);
+          if(className == 'contact') {
+            $("#contact").show();
+          }
+          else {
+            $("#contact").hide();
+          }
         }
       }
     });
@@ -127,10 +155,9 @@
     $('#navigation .region-navigation').hide();
     $('#toggle-search').show();
     $('#toggle-navigation').show();
+    $('#toggle-contact').show();
     $(".language-switcher-locale-url li").addClass('toolbar-button-wrapper');
     $(".language-switcher-locale-url li a").addClass('toolbar-button');
-    $("#contact").addClass('toolbar-button-wrapper');
-    $("#contact a").addClass('toolbar-button');
   }
 
   Drupal.mobileToolbar.disable = function() {
@@ -141,8 +168,6 @@
     $('#toggle-navigation').hide();
     $(".language-switcher-locale-url li").removeClass('toolbar-button-wrapper');
     $(".language-switcher-locale-url li a").removeClass('toolbar-button');
-    $("#contact").removeClass('toolbar-button-wrapper');
-    $("#contact a").removeClass('toolbar-button');
     // Hide the mobile navigation.
     $("#mobile-toolbar").addClass('hidden');
   }
