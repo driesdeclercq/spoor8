@@ -360,4 +360,5 @@ h3.crew-member {
 .block-footer-credits a {
   color: #898989;
   text-align: center;
+  text-decoration: none;
 }
