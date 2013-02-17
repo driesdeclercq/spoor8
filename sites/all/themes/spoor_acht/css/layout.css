@@ -1,0 +1,71 @@
+/**
+ * @file
+ *
+ * Used for layout of main elements.
+ */
+
+/**
+ * General classes
+ */
+.l-container-wide {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.l-container {
+  margin: 0 auto;
+  max-width: 1024px;
+  padding: 0 6px;
+}
+
+.l-left {
+  float: left;
+}
+.l-right {
+  float: right;
+}
+
+.l-move-under {
+  margin-top: -18px;
+}
+
+/**
+ * Header
+ */
+#header-wrapper {
+  background: transparent url(../images/header_bg.png) left bottom repeat-x;
+  padding-bottom: 13px;
+  position: relative;
+  z-index: 10;
+}
+#header {
+  height: 109px;
+}
+#logo {
+  margin: 20px 14px 0 -3px;
+}
+/**
+ * Content
+ */
+#content-wrapper {
+  position: relative;
+  z-index: 0;
+}
+#content {
+  padding: 30px 14px 20px;
+}
+
+/**
+ * Footer.
+ */
+#footer-wrapper,
+#footer {
+  background: transparent url(../images/footer_bg.png) left top repeat-x;
+  overflow: hidden;
+}
+#footer {
+  background-position: 0 -23px;
+  background-repeat: repeat;
+  margin-top: 23px;
+}

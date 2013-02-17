@@ -1,0 +1,363 @@
+/**
+ * @file
+ *
+ * Used for styling of features.
+ */
+
+/**
+ * Mobile Header
+ *
+ * Theming for mobile menu toggle buttons, and the mobile toolbar container
+ * with mobile menu and mobile search.
+ */
+#navigation,
+#toolbar,
+#toolbar > div { /* search, contact, language */
+  float: left;
+}
+#toolbar,
+#navigation {
+  margin-top: 48px;
+}
+
+/* Reset margins on lists */
+#header ul,
+#footer ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Mobile header toggle buttons */
+.toolbar-button-wrapper {
+  background: url(../images/toolbar_button_bg.png) left top no-repeat;
+  height: 33px;
+  margin-right: 14px;
+  overflow: hidden;
+  width: 39px;
+}
+.toolbar-button {
+  cursor: pointer;
+  display: block;
+  font-size: 18px;
+  font-weight: bold;
+  height: 33px;
+  line-height: 33px;
+  overflow: hidden;
+  text-align: center;
+  text-indent: -99999px;
+  width: 39px;
+}
+#navigation .toolbar-button-wrapper {
+  margin-right: 0;
+}
+#navigation .toolbar-button {
+  background: transparent url(../images/toolbar_button_menu.png) left top no-repeat;
+}
+#language .toolbar-button-wrapper.active {
+  display: none;
+}
+#language .nl .toolbar-button {
+  background: transparent url(../images/toolbar_button_nl.png) left top no-repeat;
+}
+#language .en .toolbar-button {
+  background: transparent url(../images/toolbar_button_en.png) left top no-repeat;
+}
+#search .toolbar-button {
+  background: transparent url(../images/toolbar_button_search.png) left top no-repeat;
+}
+#contact .toolbar-button {
+  background: transparent url(../images/toolbar_button_contact.png) left top no-repeat;
+}
+
+/* Mobile toolbar container */
+#mobile-toolbar.hidden {
+  display: none;
+}
+
+/* Show search or menu on mobile toolbar container. */
+#mobile-toolbar.navigation .region-navigation,
+#mobile-toolbar.search .region-search {
+  display: block;
+}
+#mobile-toolbar.search .region-navigation,
+#mobile-toolbar.navigation .region-search {
+  display: none;
+}
+
+/* Mobile menu expanded and common theming for normal menu */
+#navigation .menu,
+#mobile-toolbar .menu {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+#mobile-toolbar.navigation {
+  background: transparent url(../images/mobile_navigation_bg.png);
+}
+#mobile-toolbar .menu {
+  text-align: left;
+}
+.region-navigation .leaf a { /* Common */
+  color: #424242;
+  font-family: 'Francois One', sans-serif;
+  font-weight: normal;
+  font-size: 15px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.region-navigation .leaf a:hover { /* Common */
+  color: #65663f;
+}
+#mobile-toolbar .leaf a {
+  border-bottom: 1px solid #cccdbb;
+  color: #eeeeee;
+  display: block;
+  padding: 12px 20px 10px;
+  text-shadow: none;
+}
+#mobile-toolbar .leaf.first a {
+  padding-top: 28px;
+}
+
+/* Mobile search block styling. */
+#mobile-toolbar.search {
+  background: #ffffff;
+}
+#mobile-toolbar .region-search {
+  border: 1px solid #c8c8c8;
+  padding-top: 20px;
+}
+#mobile-toolbar #search-block-form .container-inline {
+  display: table;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+#mobile-toolbar .form-item,
+#mobile-toolbar .form-item h2 {
+  display: table-cell;
+}
+#mobile-toolbar .form-actions {
+  display: table-cell;
+  height: 100%;
+  width: 50px;
+}
+#mobile-toolbar input[type='text'] {
+  background: #fff;
+  border: none;
+  box-shadow: none;
+  height: 36px;
+  outline: none;
+}
+#mobile-toolbar input[type='submit'] {
+  background: url(../images/mobile_button_search.png) left top no-repeat;
+  box-shadow: none;
+  border: none;
+  height: 36px;
+  text-indent: -99999px;
+  width: 45px;
+}
+
+/* ==========================================================================
+   Content
+   ========================================================================== */
+/* Contact  */
+#contact input,
+#contact textarea {
+  width: 285px;
+  font-family: Arvo, serif;
+  font-size: 11px;
+  color:  #a2a2a2;
+}
+#contact label {
+  color:  #b9b9b9;
+  position: absolute;
+  width: 250px;
+  padding: 2px 6px;
+  text-align: left;
+  font-size: 11px;
+}
+#contact .form-textarea-wrapper {
+  margin-left: 0;
+}
+#contact .form-actions {
+  padding-left: 0;
+  margin-bottom: 0;
+}
+#contact input[type="submit"] {
+  width: auto;
+  color: #fefefe;
+}
+
+/* Basic page mobile layout */
+.node-page.view-mode-full.ds-2col-stacked-fluid > .group-left,
+.node-page.view-mode-full.ds-2col-stacked-fluid > .group-right {
+  margin: 0 0 20px;
+  width: 100%;
+}
+.field-name-body img {
+  border-radius: 3px;
+  box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+/* ==========================================================================
+   List menus
+   ========================================================================== */
+.block-footer-social ul li.leaf,
+#navigation .leaf {
+  display: inline-block;
+  list-style: none;
+  margin: 0 7px;
+  padding: 0;
+}
+#mobile-toolbar .leaf {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* ==========================================================================
+   Development
+   ========================================================================== */
+ul.primary,
+ul.secondary {
+  border: none;
+  margin: 20px 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+ul.primary li,
+ul.secondary li {
+  border-right: none;
+  border-bottom: 4px solid #efeeee;
+  display: block;
+  float: left;
+  margin-right: 6px;
+  padding: 0;
+}
+
+ul.primary li a,
+ul.primary li a:hover,
+ul.primary li.active a,
+ul.secondary li a,
+ul.secondary li a:hover,
+ul.secondary li.active a {
+  background: transparent;
+  border: 0;
+  display: block;
+  font-size: 13px;
+  line-height: 19px;
+  margin: 0;
+  padding: 5px 15px 2px;
+  text-align: center;
+}
+ul.primary li a:hover,
+ul.primary li.active a,
+ul.secondary li a:hover,
+ul.secondary li.active a {
+  background: #efeeee;
+}
+
+/* ==========================================================================
+   Features
+   ========================================================================== */
+/* Page sidebar blocks */
+.group-right > .field {
+  margin-bottom: 34px;
+}
+
+/* Crew */
+.view-crew .crew-item {
+  min-height: 120px;
+  width: 100%;
+}
+.view-crew .crew-item.views-row-odd {
+  margin-right: 0;
+}
+.crew-icon-overlay {
+  background: url(../images/crew_icon_overlay.png) top left no-repeat;
+  float: left;
+  height: 93px;
+  margin-left: -104px;
+  margin-right: 9.2592593%;
+  position: relative;
+  width: 104px;
+  z-index: 10;
+}
+.crew-icon-wrapper {
+  float: left;
+  height: 93px;
+  min-width: 104px;
+  position: relative;
+  z-index: 0;
+}
+.crew-icon-wrapper img {
+  border-radius: 3px;
+}
+
+h3.crew-member {
+  font-size: 15px;
+  margin-bottom: 0px;
+  padding-top: 30px;
+  text-tranform: uppercase;
+}
+.crew-function {
+   color: #7a7c4a;
+}
+#block-block-4 {
+  float: right;
+}
+
+/**
+ * Footer
+ */
+.region-footer p {
+  margin: 0;
+}
+.block-footer-social ul  {
+  text-align: center;
+ margin: 0em 1em 1.2em;
+}
+.block-footer-social ul li.leaf a {
+  background-image: url('../images/footer_social_icons_mobile.png');
+  overflow: hidden;
+  text-indent: -99999px;
+  display: block;
+  float: right;
+  height: 58px;
+  width: 61px;
+}
+.block-footer-social ul li.leaf a.twitter {
+  background-position: -280px -2px;
+}
+.block-footer-social ul li.leaf a.facebook {
+  background-position: -70px -2px;
+}
+.block-footer-social ul li.leaf a.pinterest {
+  background-position: -420px -2px;
+}
+.block-footer-social ul li.leaf a.vimeo {
+  background-position: -350px -2px;
+}
+.block-footer-social ul li.leaf a.youtube {
+  background-position: -140px -2px;
+}
+.block-footer-social ul li.leaf a.google {
+  background-position: -210px -2px;
+}
+.block-footer-social ul li.leaf a.instagram {
+  background-position: 0 -2px;
+}
+.block-footer-social ul li.leaf a:hover {
+  background-position-y: -72px;
+}
+.block-footer-credits {
+  margin: 20px 0;
+}
+.block-footer-credits p,
+.block-footer-credits a {
+  color: #898989;
+  text-align: center;
+}

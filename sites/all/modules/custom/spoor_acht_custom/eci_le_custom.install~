@@ -1,0 +1,14 @@
+<?php
+
+
+/**
+ * Implements hook_install().
+ */
+function spoor_acht_custom_install() {
+  // Use the new spoor8 theme.
+  theme_enable(array('spoor_acht_theme'));
+  variable_set('theme_default', 'spoor_acht_theme');
+
+  // Also enable the admin_menu_toolbar for the Drupal 7 look.
+  module_enable(array('admin_menu', 'admin_menu_toolbar', 'module_filter'));
+}

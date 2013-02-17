@@ -1,0 +1,18 @@
+name = Spoor 8 custom module
+description = Custom module which contains all code for 2.x version of the site.
+core = 7.x
+package = ECI-LE - 2.x
+
+; Contrib
+dependencies[] = admin_menu
+dependencies[] = admin_menu_toolbar
+dependencies[] = module_filter
+dependencies[] = i18n
+dependencies[] = strongarm
+;dependencies[] = conditional_styles
+;dependencies[] = libraries
+;dependencies[] = menu_attributes
+;dependencies[] = menu_block
+;dependencies[] = menu_position
+;dependencies[] = field_reference_delete
+

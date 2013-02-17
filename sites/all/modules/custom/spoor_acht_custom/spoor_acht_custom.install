@@ -1,0 +1,15 @@
+<?php
+
+
+/**
+ * Implements hook_install().
+ */
+function spoor_acht_custom_install() {
+  // We use the admin toolbar module, don't need the default toolbar.
+  module_disable('toolbar');
+
+  // Use the new spoor8 theme.
+  theme_enable(array('spoor_acht_theme'));
+  variable_set('theme_default', 'spoor_acht_theme');
+
+}

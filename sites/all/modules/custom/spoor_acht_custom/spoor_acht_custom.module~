@@ -1,0 +1,204 @@
+<?php
+
+/**
+ * Implements hook_menu().
+ *
+ * Adds a wysiwyg text field to set the Energy Blog top text.
+ */
+function eci_le_custom_menu() {
+  // Energy Blog overview.
+  $items['admin/leonardo/intro-text'] = array(
+    'title' => 'Introduction texts',
+    'description' => 'Set the introduction text for the Energy blog, projects page and more.',
+    'position' => 'right',
+    'weight' => 1,
+    'access callback' => 'user_access',
+    'access arguments' => array('administer leonardo'),
+  );
+  $items['admin/leonardo/intro-text/energy-blog'] = array(
+    'title' => t("Energy Blog"),
+    'description' => 'Set the introduction text on the Energy blog page.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('eci_le_custom_blog_intro'),
+    'access callback' => 'user_access',
+    'access arguments' => array('administer leonardo'),
+    'file' => 'inc/eci_le_custom.admin.inc',
+  );
+  $items['admin/leonardo/intro-text/projects'] = array(
+    'title' => t("Project page"),
+    'description' => 'Set the introduction text on the Projects page.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('eci_le_custom_projects_intro'),
+    'access callback' => 'user_access',
+    'access arguments' => array('administer leonardo'),
+    'file' => 'inc/eci_le_custom.admin.inc',
+  );
+  $items['admin/leonardo/intro-text/contact'] = array(
+    'title' => t("Contact page"),
+    'description' => 'Set the introduction text on the Contact page.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('eci_le_custom_contact_intro'),
+    'access callback' => 'user_access',
+    'access arguments' => array('administer leonardo'),
+    'file' => 'inc/eci_le_custom.admin.inc',
+  );
+
+  return $items;
+}
+
+/**
+ * Implements hook_form_article_node_form_alter.
+ *
+ * Disable and empty the channel tag selection on articles nodes when the
+ * checkbox for 'blog' is checked.
+ */
+function eci_le_custom_form_article_node_form_alter(&$form, &$form_state) {
+  drupal_add_js();
+
+  $path = drupal_get_path('module', 'eci_le_custom');
+  drupal_add_js($path . '/js/article_blog.js', array('weight' => 1));
+}
+
+/**
+ * Implements hook_menu_link_alter().
+ */
+function eci_le_custom_menu_link_alter(&$item) {
+  // Set the menu item to be altered when it goes to /user or /node/54261 which
+  // is the 'Request an account' page.
+  // @see eci_le_custom_translated_menu_link_alter().
+  $paths_to_hide_when_logged_in = array(
+    'user',
+    'node/54261',
+  );
+  if (in_array($item['link_path'], $paths_to_hide_when_logged_in)) {
+    $item['options']['alter'] = TRUE;
+  }
+}
+
+/**
+ * Implements hook_translated_menu_link_alter().
+ */
+function eci_le_custom_translated_menu_link_alter(&$item, $map) {
+  // Do not display the menu item to /user if the user is not logged in.
+  if ($item['link_path'] == 'user') {
+    $item['access'] = user_is_logged_in();
+  }
+  // Do not display the menu item to the 'Request an account' page when the
+  // user is logged in.
+  elseif ($item['link_path'] == 'node/54261') {
+    $item['access'] = !user_is_logged_in();
+  }
+}
+
+/**
+ * Implements hook_block_info().
+ */
+function eci_le_custom_block_info() {
+  // Add intro block for energy blog.
+  $blocks['block_energy_blog_intro'] = array(
+    'info' => t('Intro text for energy blog'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  // Add intro block for the projects page.
+  $blocks['block_projects_intro'] = array(
+    'info' => t('Intro text for the projects page'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+    'region' => 'content',
+    'title' => '<none>',
+    'weight' => -40,
+    'status' => 1,
+    'visibility' => BLOCK_VISIBILITY_LISTED,
+    'pages' => 'projects',
+  );
+  // Add intro block for the contact page.
+  $blocks['block_contact_intro'] = array(
+    'info' => t('Intro text for the contact page'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  // Add intro block for Request account form.
+  $blocks['block_request_account_link'] = array(
+    'info' => t('Request an account link'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+    'visiblity' => BLOCK_VISIBILITY_PHP,
+
+  );
+
+
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ *   Add entries for Energy blog and Projects page.
+ *   Add block with link to account creation.
+ */
+function eci_le_custom_block_view($delta = '') {
+  $block = array();
+
+  switch ($delta) {
+    case 'block_energy_blog_intro':
+      $block['subject'] = t('Energy blog intro');
+      $default = array(
+        'format' => 'full_html',
+        'value' =>  '',
+      );
+      $intro = variable_get('eci_le_custom_blog_intro', $default);
+      $block['content'] = check_markup($intro['value'], $intro['format']);
+
+      break;
+
+    case 'block_projects_intro':
+      $block['subject'] = t('Projects page intro');
+      $default = array(
+        'format' => 'full_html',
+        'value' =>  '',
+      );
+      $intro = variable_get('eci_le_custom_projects_intro', $default);
+      $block['content'] = '<div class="projects-intro">' . check_markup($intro['value'], $intro['format']) . '</div>';
+
+      break;
+
+    case 'block_contact_intro':
+      $block['subject'] = t('Contact page intro');
+      $default = array(
+        'format' => 'full_html',
+        'value' =>  '<h1>Contact</h1>',
+      );
+      $intro = variable_get('eci_le_custom_contact_intro', $default);
+      $block['content'] = '<div class="contact-intro">' . check_markup($intro['value'], $intro['format']) . '</div>';
+
+      break;
+
+    case 'block_request_account_link':
+      $block['subject'] = t('Request account page intro');
+      $default = array(
+        'format' => 'plain_text',
+        'value' =>  '',
+      );
+      $block['content'] = '<div class="request-account-link">'
+        . l(t('Request an account'), 'request-account',
+            array('attributes' => array('class' => array('block-button'))))
+        . '</div>';
+
+      break;
+  }
+
+  return $block;
+}
+
+/**
+ * Implements hook_image_styles_alter().
+ *
+ * Change the scaling of medium images to fit nicely in the sidebar or right
+ * group.
+ */
+function eci_le_custom_image_styles_alter(&$styles) {
+  // Check that we only affect a default style.
+  if (isset($styles['medium']) && isset($styles['medium']['storage']) && $styles['medium']['storage'] == IMAGE_STORAGE_DEFAULT) {
+    $styles['medium']['effects'][0]['data'] = array(
+      'width' => 184,
+      'height' => 0,
+      'upscale' => 0,
+    );
+  }
+}

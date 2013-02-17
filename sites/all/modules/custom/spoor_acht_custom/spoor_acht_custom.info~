@@ -1,0 +1,13 @@
+name = ECI LE custom module
+description = Custom module which contains all code for 2.x version of the site.
+core = 7.x
+package = ECI-LE - 2.x
+
+; Contrib
+dependencies[] = conditional_styles
+dependencies[] = libraries
+dependencies[] = menu_attributes
+dependencies[] = menu_block
+dependencies[] = menu_position
+dependencies[] = field_reference_delete
+
