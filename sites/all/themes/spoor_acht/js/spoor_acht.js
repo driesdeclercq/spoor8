@@ -108,7 +108,6 @@
         $("#mobile-toolbar").addClass(className)
           .removeClass('hidden');
         // If type == contact: show.
-console.log("ta" + className);
         if(className == 'contact') {
           $("#contact").show();
         }
@@ -119,7 +118,6 @@ console.log("ta" + className);
           $("#mobile-toolbar")
             .removeClass(Drupal.mobileToolbar.types)
             .addClass('hidden');
-console.log("da" + className);
           // if  type == contact: hide.
           if(className == 'contact') {
             $("#contact").hide();
@@ -153,6 +151,8 @@ console.log("da" + className);
     // Show the mobile buttons.
     $('#search .region-search').hide();
     $('#navigation .region-navigation').hide();
+    $('#contact').hide();
+    $('#contact .block-webform').css({'margin-right': 0});
     $('#toggle-search').show();
     $('#toggle-navigation').show();
     $('#toggle-contact').show();
@@ -162,10 +162,13 @@ console.log("da" + className);
 
   Drupal.mobileToolbar.disable = function() {
     // Toggle toolbar elements.
+    $('#contact').show();
+    $('#contact .block-webform').css({'margin-right': '-500px'});
     $('#search .region-search').show();
     $('#navigation .region-navigation').show();
     $('#toggle-search').hide();
     $('#toggle-navigation').hide();
+    $('#toggle-contact').hide();
     $(".language-switcher-locale-url li").removeClass('toolbar-button-wrapper');
     $(".language-switcher-locale-url li a").removeClass('toolbar-button');
     // Hide the mobile navigation.
