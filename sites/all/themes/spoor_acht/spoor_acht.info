@@ -24,6 +24,6 @@ stylesheets-conditional[lte IE 8][all][] = css/lte-ie8.css
 
 ; Javascripts.
 ;scripts[] = js/jquery.featureCarousel.min.js
-;scripts[] = js/jquery.carouFredSel-6.1.0-packed.js
+scripts[] = js/jquery.carouFredSel-6.1.0-packed.js
 scripts[] = js/jquery.infieldlabel.js
 scripts[] = js/spoor_acht.js

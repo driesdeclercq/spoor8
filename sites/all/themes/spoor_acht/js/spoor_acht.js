@@ -12,7 +12,54 @@
   Drupal.mobileToolbar.loaded = false;
   Drupal.mobileToolbar.types = 'search navigation contact';
 
+ // Drupal.slideShow = {};
+
+
   $(document).ready(function() {
+  //  Drupal.slideShow.element = $('.html-carousel .view-content');
+
+
+    $('#session-carousel').carouFredSel({
+      responsive: true,
+      circular: false,
+      auto: false,
+      items: {
+        visible: 1,
+        width: 560,
+        height: '56.25%'
+      },
+      scroll: {
+        fx: 'directscroll'
+      }
+    });
+
+    $('#session-thumbs').carouFredSel({
+      responsive: true,
+      circular: false,
+      infinite: false,
+      auto: false,
+      prev: '#prev',
+      next: '#next',
+      items: {
+        visible: {
+          min: 2,
+          max: 5
+        },
+        width: 90,
+        height: '55.5555556%'
+      }
+    });
+
+    $('#session-thumbs div.thumb-toggle').click(function() {
+      console.log($(this));
+      console.log(this.id.split('id-').pop());
+      $('#session-carousel').trigger('slideTo', '#' + this.id.split('id-').pop());
+      $('#session-thumbs a').removeClass('selected');
+      $(this).addClass('selected');
+      return false;
+    });
+
+
     var closeButton = $('<div id="contact-close">close</div>').click(function(){
       $(this)
         .parents(".block-webform")
@@ -37,6 +84,10 @@
         Drupal.mobileToolbar.enable();
       }
     }
+    else {
+      // Show or initialize the slideshow.
+   //   Drupal.slideShow.enable();
+    }
   });
 
   $(window).resize(
@@ -46,9 +97,13 @@
         if (Drupal.mobileToolbar.loaded & $("#mobile-toolbar").hasClass('loaded')) {
           Drupal.mobileToolbar.enable();
         }
+        // Hide the slideshow.
+  //      Drupal.slideShow.disable();
       }
       else {
         Drupal.mobileToolbar.disable();
+        // Show or initialize the slideshow.
+  //      Drupal.slideShow.enable();
       }
     }
   );
@@ -175,163 +230,15 @@
     $("#mobile-toolbar").addClass('hidden');
   }
 
-  /**
-   * Initialize objects used later.
-   *
-
-  $(document).ready(function() {
-    // Initialize the slideshow element when the page has loaded.
-    Drupal.slideShow.element = $('.view-slideshow');
-
-    if ($(window).width() >= Drupal.breakpoints.large) {
-      if ($('.carousel-container .view-content').length > 0) {
-        $('.carousel-container .view-content').setBlogCarousel();
-      }
-    }
-    if ($(window).width() >= Drupal.breakpoints.medium) {
-      if ($('.carousel-container .view-content').length > 0) {
-        $('.carousel-container .view-content').addClass('wide-layout');
-      }
-
-      $('.front .panel-3col-33-stacked .center-wrapper .panel-panel').equalHeights();
-
-      // Show or initialize the slideshow.
-      Drupal.slideShow.enable();
-    }
-  });
-
   $(window).resize(function() {
-    if ($('.carousel-container .view-content').length > 0) {
-      if ($(window).width() >= Drupal.breakpoints.medium) {
-        $('.carousel-container .view-content').addClass('wide-layout');
-      }
-      if ($(window).width() >= Drupal.breakpoints.large) {
-        if ($('#carousel').length <= 0) { // Avoid loading multiple times.
-          $('.carousel-container .view-content').setBlogCarousel();
-        }
-      }
-      else {
-        // Reload the page to hide the caroussel and show the normal list
-        // instead. It is too hard to undo the carousel plugin code on resize.
-        if ($('.carousel-container .view-content').hasClass('wide-layout')) {
-          window.location.reload();
-        }
-      }
-    }
-
     if ($(window).width() >= Drupal.breakpoints.medium) {
-      $('.front .panel-3col-33-stacked .center-wrapper .panel-panel').height('auto').equalHeights();
-
       // Show or initialize the slideshow.
-      Drupal.slideShow.enable();
-      // Set a height so the pager feels responsive.
-      Drupal.slideShow.setHeight();
+  //    Drupal.slideShow.enable();
     }
     else {
-      $('.front .panel-3col-33-stacked .center-wrapper .panel-panel').height('auto');
-
       // Hide the slideshow.
-      Drupal.slideShow.element.hide();
+  //    Drupal.slideShow.element.hide();
     }
   });
-
-  /**
-   * Show or initialize the slideshow.
-   *
-  Drupal.slideShow.enable = function() {
-    if (!Drupal.slideShow.element.hasClass('loaded')) {
-      // Create the pager.
-      Drupal.slideShow.element.append('<div class="pager"></div>');
-
-      // Create the slideshow.
-      Drupal.slideShow.element.show().find('.view-content').carouFredSel({
-        responsive: true,
-        items: {
-          visible: 1,
-          width: 940
-        },
-        scroll: {
-          items: 1,
-          easing: 'quadratic',
-          duration: 1000,
-          pauseOnHover: true
-        },
-        auto: {
-          timeoutDuration: 4000
-        },
-        pagination: '.view-slideshow .pager',
-        onCreate: function(options) {
-          // Set a height so the pager feels responsive.
-          Drupal.slideShow.setHeight();
-          // Add a class so we do not load the slideshow twice.
-          Drupal.slideShow.element.addClass('loaded');
-        }
-      });
-    }
-    else {
-      Drupal.slideShow.element.show();
-    }
-  }
-
-  /**
-   * Set a height so the pager feels responsive.
-   *
-  Drupal.slideShow.setHeight = function() {
-    // We use the height of an img because its height is automatically adjusted
-    // by the browser. See the img style in base.css.
-    var width = Drupal.slideShow.element.width(),
-        height = width * (250 / 940);
-    console.log(height);
-    Drupal.slideShow.element.height(height);
-  }
-
-  /**
-   * Enable the carousel on the blog page.
-   *
-  $.fn.setBlogCarousel = function() {
-    // Plugin needs an ID.
-    this.attr('id', 'carousel');
-    this.parent().append('<div id="carousel-left">left</div><div id="carousel-right">right</div>');
-    $('#carousel .group_publish_info, #carousel .field-name-body').hide();
-    $('#carousel').featureCarousel({
-      autoPlay: 0,
-      preload: false,
-      largeFeatureWidth: 538,
-      largeFeatureHeight: 146,
-      smallFeatureWidth: 240,
-      smallFeatureHeight: 86,
-      topPadding: 60,
-      sidePadding: 0,
-      smallFeatureOffset: -54,
-      trackerIndividual: false,
-      leavingCenter: function($feature) {
-        $feature
-          .removeClass('center-feature')
-          .find('.group_publish_info, .field-name-body')
-          .hide();
-      },
-      movedToCenter: function($feature) {
-        $temp = $feature
-          .addClass('center-feature')
-          .find('.group_publish_info, .field-name-body')
-          .show();
-      }
-    });
-  }
-
-  /**
-   * Give multiple elements the same height.
-   *
-  $.fn.equalHeights = function() {
-    tallest = 0;
-    this.each(function() {
-      if ($(this).height() > tallest) {
-        tallest = $(this).height();
-      }
-    });
-    return this.each(function() {
-      $(this).height(tallest);
-    });
-  }*/
 
 })(jQuery, Drupal);

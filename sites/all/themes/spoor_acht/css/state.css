@@ -181,6 +181,9 @@
   }
 
   /* Contact */
+  #contact {
+    border-bottom: none;
+  }
   #contact-close {
     display: block;
     background: url(../images/button-contact-close.png) left top no-repeat;
@@ -426,4 +429,95 @@
    ========================================================================== */
 .js {
 
+}
+.node-session .group-left {
+  width: 54.6875%;
+  height: 360px;
+}
+#slideshow-carousel {
+  position: relative;
+}
+#slideshow-wrapper {
+  position: absolute;
+	width: 100%;
+	top: 20px;
+}
+#carousel-wrapper {
+  position: relative;
+}
+#session-carousel, #session-thumbs {
+  overflow: hidden;
+}
+#session-carousel-wrapper .caroufredsel_wrapper {
+  border-radius: 3x;
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+#session-carousel span, #carousel img,
+#session-thumbs div.thumb-toggle, #session-thumbs img  {
+  display: block;
+  float: left;
+}
+#session-carousel span, #session-carousel div.thumb-toggle,
+#session-thumbs span, #session-thumbs div.thumb-toggle {
+  position: relative;
+}
+#session-carousel img,
+#session-thumbs img {
+  border: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#session-carousel span {
+  width: 560px;
+  height: 315px;
+}
+
+#session-thumbs-wrapper {
+  padding: 10px 46px;
+  position: relative;
+}
+#session-thumbs div.thumb-toggle {
+  border: 1px solid #899;
+  width: 90px;
+  height: 50px;
+  margin: 0 1px;
+  overflow: hidden;
+  border-radius: 3px;
+  -webkit-transition: border-color .5s;
+  -moz-transition: border-color .5s;
+  -ms-transition: border-color .5s;
+  transition: border-color .5s;
+}
+#session-thumbs div.thumb-toggle:hover, #session-thumbs div.thumb-toggle.selected {
+  border-color: #566;
+}
+
+#prev, #next {
+  background: blueviolet;
+  display: block;
+  width: 19px;
+  height: 20px;
+  margin-top: -10px;
+  position: absolute;
+  top: 50%;
+}
+#prev {
+  background-position: 0 0;
+  left: 10px;
+}
+#next {
+  background-position: -19px 0;
+  right: 10px;
+}
+#prev:hover {
+  background-position: 0 -20px;
+}
+#next:hover {
+  background-position: -19px -20px;
+}
+#prev.disabled, #next.disabled {
+  display: none !important;
 }
