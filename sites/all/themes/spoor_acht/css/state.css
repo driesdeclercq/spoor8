@@ -85,14 +85,16 @@
   }
   #contact {
     display: block;
-    margin-right: -2px;
-    position: fixed;
+    position: absolute;
     right: 0;
-    top: 40px;
+    top: 100px;
+    width: 30px;
+    overflow: hidden;
     z-index: 20;
+    padding-left: 3px;
   }
   body.logged-in #contact {
-    top: 160px;
+    top: 140px;
   }
 
   /* Header search */
@@ -184,6 +186,11 @@
   #contact {
     border-bottom: none;
   }
+  #contact .region-contact {
+    position: relative;
+    height: 420px;
+    display: block;
+  }
   #contact-close {
     display: block;
     background: url(../images/button-contact-close.png) left top no-repeat;
@@ -233,20 +240,21 @@
   #contact .block-toggle-contact {
     display: block;
     background-image: url(../images/contact_bg.png);
-    float: left;
-    margin: 93px -5px 0 0;
     padding: 0;
-    position: relative;
-    z-index: 10;
+    position: absolute;
+    left: 0;
+    z-index: 15;
+    top: 49px;
   }
   #contact .block-webform {
+    z-index: 10;
     background-image: url(../images/contact_bg.png);
     border-top: 1px solid rgba(156,156,156,0.1);
+    position: absolute;
+    left: 33px;
+    top: 0;
     float: left;
-    margin-right: -498px;
-    position: relative;
     width: 498px;
-    z-index: 5;
     -webkit-border-bottom-left-radius: 3px;
     -moz-border-radius-bottomleft: 3px;
     border-bottom-left-radius: 3px;
@@ -336,6 +344,76 @@
   h3.crew-member {
     padding-top: 30px;
   }
+
+  /* Session Detail *
+  562         |  63       | 399         = 1024
+  video       | marge     | body
+  54.8828125	| 6.1523437	| 38.9648437	= 99.9999999%
+  */
+  body.node-type-session #content-wrapper {
+    background: url(../images/session_bg.png) left top repeat-x;
+  }
+  .node-session.view-mode-full .field-name-body {
+  max-height: 230px;
+  margin-bottom: 46px;
+  }
+  .node-session.view-mode-full .field-session-video {
+    padding: 0 2.34375% 20px;
+    float: left;
+    width: 54.8828125%;
+    margin-right: 3.8085937%;
+    margin-left: -2.34375%;
+    -webkit-background-size:cover;
+    -moz-background-size:cover;
+    background-size:cover;
+    background-position: 50% 50%;
+    background-image: url('../images/video_bg.png');
+    position: relative;
+  }
+  .node-session.view-mode-full .field-session-video .video-wrapper {
+    background-color: teal;
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+
+  }
+  .node-session.view-mode-full .field-session-video .video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .node-session.view-mode-full .group-left {
+    width: 54.8828125%;
+    margin-right: 3.8085937%;
+    margin-bottom: 50px;
+  }
+  .node-session.view-mode-full .group-right,
+  .node-session.view-mode-full .field-name-title {
+    float: right;
+    width: 38.9648437%;
+  }
+  .node-session.view-mode-full .field-name-title h1 {
+    font-size: 35px;
+    color: #f0f0f0;
+    border-bottom: none;
+    line-height: 1.1em;
+    margin: -0.1em 0 0;
+  }
+  .node-session.view-mode-full .field-name-body p {
+    margin: 0 0 0.4em;
+    font-size: 11px;
+    color: #d9da9c;
+  }
+
+  .node-session.view-mode-full .group-header {
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+
+
+
 
   /**
    * Footer
@@ -430,32 +508,47 @@
 .js {
 
 }
-.node-session .group-left {
-  width: 54.6875%;
-  height: 360px;
+
+.node-session .group-right h2.block-title,
+.node-session .field-name-session-pictures h2 {
+  margin: 0.7em 0 1.1em;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 0.9em;
 }
+.node-session .group-right h2.block-title {
+  font-size: 18px;
+  margin-top: 1.1em;
+}
+.node-session .group-right h2.block-title p {
+  margin: 0;
+}
+#session-carousel-wrapper {
+  border-radius: 3px;
+  box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.4);
+  padding-left: 1px;
+  margin-right: 1px;
+}
+
 #slideshow-carousel {
+  height: 385px;
   position: relative;
 }
 #slideshow-wrapper {
   position: absolute;
 	width: 100%;
-	top: 20px;
+	top: 0px;
 }
 #carousel-wrapper {
   position: relative;
 }
 #session-carousel, #session-thumbs {
-  overflow: hidden;
+  overflow: visible;
 }
 #session-carousel-wrapper .caroufredsel_wrapper {
-  border-radius: 3x;
-  box-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
 #session-carousel span, #carousel img,
 #session-thumbs div.thumb-toggle, #session-thumbs img  {
   display: block;
-  float: left;
 }
 #session-carousel span, #session-carousel div.thumb-toggle,
 #session-thumbs span, #session-thumbs div.thumb-toggle {
@@ -463,6 +556,7 @@
 }
 #session-carousel img,
 #session-thumbs img {
+  border-radius: 4px;
   border: none;
   width: 100%;
   height: 100%;
@@ -470,22 +564,29 @@
   top: 0;
   left: 0;
 }
+#session-thumbs img {
+  border-radius: 3px;
+  margin: 0 2px 2px 1px;
+}
 #session-carousel span {
-  width: 560px;
+  border-radius: 3px;
+  width: 562px;
   height: 315px;
+  float: left;
 }
 
 #session-thumbs-wrapper {
-  padding: 10px 46px;
+  padding: 20px 46px;
   position: relative;
 }
 #session-thumbs div.thumb-toggle {
-  border: 1px solid #899;
   width: 90px;
-  height: 50px;
-  margin: 0 1px;
+  height: 54px;
+  margin: 0 2px;
+  padding: 2px;
   overflow: hidden;
   border-radius: 3px;
+  float: left;
   -webkit-transition: border-color .5s;
   -moz-transition: border-color .5s;
   -ms-transition: border-color .5s;
@@ -493,30 +594,25 @@
 }
 #session-thumbs div.thumb-toggle:hover, #session-thumbs div.thumb-toggle.selected {
   border-color: #566;
+  cursor: pointer;
 }
 
 #prev, #next {
-  background: blueviolet;
+  background-image: url('../images/carousel_buttons.png');
   display: block;
-  width: 19px;
-  height: 20px;
-  margin-top: -10px;
+  width: 45px;
+  height: 40px;
+  margin-top: -20px;
   position: absolute;
   top: 50%;
 }
 #prev {
-  background-position: 0 0;
-  left: 10px;
+  background-position: 0 -40px;
+  left: 0px;
 }
 #next {
-  background-position: -19px 0;
-  right: 10px;
-}
-#prev:hover {
-  background-position: 0 -20px;
-}
-#next:hover {
-  background-position: -19px -20px;
+  background-position: 0 0;
+  right: 0px;
 }
 #prev.disabled, #next.disabled {
   display: none !important;

@@ -57,10 +57,10 @@ blockquote {
   margin: 1.1em 0 1.2em;
 }
 h3,
-h2.block-title {
+.node-page h2.block-title {
   font-size: 18px;
 }
-h2.block-title {
+.node-page h2.block-title {
   border-bottom: 1px solid #b7b7b7;
   margin: 0 0 1.3em;
   padding: 0 0 1em;

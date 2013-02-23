@@ -42,7 +42,11 @@
 #header {
   height: 109px;
 }
+h1#logo,
 #logo {
+  border-bottom: 0;
+  font-size: 12px;
+  line-height: 1.3846em;
   margin: 20px 14px 0 -3px;
 }
 /**

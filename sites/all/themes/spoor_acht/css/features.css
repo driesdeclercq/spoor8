@@ -36,6 +36,7 @@
   overflow: hidden;
   width: 39px;
 }
+#contact-link,
 .toolbar-button {
   cursor: pointer;
   display: block;
@@ -66,16 +67,19 @@
 #search .toolbar-button {
   background: transparent url(../images/toolbar_button_search.png) left top no-repeat;
 }
-#btn-contact.toolbar-button {
+#contact-link {
   background: transparent url(../images/toolbar_button_contact.png) left top no-repeat;
 }
 
 /* Contact */
 #contact {
   border-bottom: 1px solid #cccdbb;
+  position: relative;
 }
-#contact,
 #contact-close {
+  display: none;
+}
+.region-contact.hidden {
   display: none;
 }
 #contact .block-webform {
@@ -263,6 +267,30 @@
   box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.25);
 }
 
+/* Session detail */
+/* Band links */
+.group-band-links span a {
+  display: inline-block;
+  line-height: 26px;
+  padding-left: 31px;
+  padding-right: 13px;
+  text-decoration: none;
+  color: #7a7c4a;
+  background: url(../images/band_links_icons.png) left top no-repeat;
+}
+.group-band-links .band-twitter a {
+  background-position: 0 0;
+}
+.group-band-links .band-facebook a {
+  background-position: 0 0 -78px;
+}
+.group-band-links .band-website a{
+  background-position: 0 -52px;
+}
+.group-band-links .band-soundcloud a {
+  background-position: 0 -26px;
+}
+
 /* ==========================================================================
    List menus
    ========================================================================== */
@@ -282,6 +310,18 @@
 /* ==========================================================================
    Development
    ========================================================================== */
+ul.primary {
+  position: absolute;
+  left: 50px;
+  width: 40px;
+  height: 30px;
+  border: 1px solid #b9b9b9;
+  border-radius: 3px;
+  box-shadow: inset 0 0 2px 0 rgba(0, 0, 0, 0.2);
+}
+ul.primary:hover {
+  width: auto;
+}
 ul.primary,
 ul.secondary {
   border: none;
@@ -306,7 +346,6 @@ ul.primary li.active a,
 ul.secondary li a,
 ul.secondary li a:hover,
 ul.secondary li.active a {
-  background: transparent;
   border: 0;
   display: block;
   font-size: 13px;
@@ -314,12 +353,14 @@ ul.secondary li.active a {
   margin: 0;
   padding: 5px 15px 2px;
   text-align: center;
+   background: #efeeee;
+   color: #efeeee;
+   border: none;
 }
 ul.primary li a:hover,
-ul.primary li.active a,
-ul.secondary li a:hover,
-ul.secondary li.active a {
-  background: #efeeee;
+ul.secondary li a:hover {
+ background: green;
+ color: black;
 }
 
 /* ==========================================================================
@@ -372,6 +413,8 @@ h3.crew-member {
   float: right;
 }
 
+
+
 /**
  * Footer
  */
@@ -423,18 +466,4 @@ h3.crew-member {
   color: #898989;
   text-align: center;
   text-decoration: none;
-}
-
-.video-wrapper {
-	position: relative;
-	padding-bottom: 56.25%; /* 16:9 */
-	padding-top: 25px;
-	height: 0;
-}
-.video-wrapper iframe {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
 }
