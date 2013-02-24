@@ -53,6 +53,50 @@ function session_image_default_styles() {
     ),
   );
 
+  // Exported image style: session_overview.
+  $styles['session_overview'] = array(
+    'name' => 'session_overview',
+    'effects' => array(
+      5 => array(
+        'label' => 'Scale and crop',
+        'help' => 'Scale and crop will maintain the aspect-ratio of the original image, then crop the larger dimension. This is most useful for creating perfectly square thumbnails without stretching the image.',
+        'effect callback' => 'image_scale_and_crop_effect',
+        'dimensions callback' => 'image_resize_dimensions',
+        'form callback' => 'image_resize_form',
+        'summary theme' => 'image_resize_summary',
+        'module' => 'image',
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => '279',
+          'height' => '163',
+        ),
+        'weight' => '1',
+      ),
+    ),
+  );
+
+  // Exported image style: session_slideshow.
+  $styles['session_slideshow'] = array(
+    'name' => 'session_slideshow',
+    'effects' => array(
+      6 => array(
+        'label' => 'Scale and crop',
+        'help' => 'Scale and crop will maintain the aspect-ratio of the original image, then crop the larger dimension. This is most useful for creating perfectly square thumbnails without stretching the image.',
+        'effect callback' => 'image_scale_and_crop_effect',
+        'dimensions callback' => 'image_resize_dimensions',
+        'form callback' => 'image_resize_form',
+        'summary theme' => 'image_resize_summary',
+        'module' => 'image',
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => '1440',
+          'height' => '440',
+        ),
+        'weight' => '1',
+      ),
+    ),
+  );
+
   // Exported image style: session_thumb.
   $styles['session_thumb'] = array(
     'name' => 'session_thumb',

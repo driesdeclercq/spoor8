@@ -20,7 +20,7 @@ function session_strongarm() {
         'custom_settings' => TRUE,
       ),
       'full' => array(
-        'custom_settings' => FALSE,
+        'custom_settings' => TRUE,
       ),
       'rss' => array(
         'custom_settings' => FALSE,
@@ -37,27 +37,56 @@ function session_strongarm() {
       'revision' => array(
         'custom_settings' => FALSE,
       ),
+      'slideshow' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
         'language' => array(
-          'weight' => '0',
+          'weight' => '1',
         ),
         'title' => array(
-          'weight' => '-5',
+          'weight' => '0',
         ),
         'path' => array(
-          'weight' => '30',
+          'weight' => '6',
         ),
       ),
       'display' => array(
         'language' => array(
           'teaser' => array(
-            'weight' => '6',
+            'weight' => '19',
             'visible' => FALSE,
           ),
           'default' => array(
-            'weight' => '14',
+            'weight' => '17',
+            'visible' => TRUE,
+          ),
+          'full' => array(
+            'weight' => '21',
+            'visible' => FALSE,
+          ),
+          'slideshow' => array(
+            'weight' => '17',
+            'visible' => FALSE,
+          ),
+        ),
+        'facebook_comments' => array(
+          'default' => array(
+            'weight' => '5',
+            'visible' => TRUE,
+          ),
+          'full' => array(
+            'weight' => '5',
+            'visible' => TRUE,
+          ),
+          'teaser' => array(
+            'weight' => '21',
+            'visible' => FALSE,
+          ),
+          'slideshow' => array(
+            'weight' => '19',
             'visible' => FALSE,
           ),
         ),
@@ -70,7 +99,7 @@ function session_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_session';
-  $strongarm->value = '1';
+  $strongarm->value = '2';
   $export['language_content_type_session'] = $strongarm;
 
   $strongarm = new stdClass();

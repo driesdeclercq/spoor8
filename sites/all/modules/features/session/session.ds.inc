@@ -17,15 +17,62 @@ function session_ds_field_settings_info() {
   $ds_fieldsetting->bundle = 'session';
   $ds_fieldsetting->view_mode = 'default';
   $ds_fieldsetting->settings = array(
-    'session_pictures' => array(
+    'title' => array(
       'weight' => '0',
       'label' => 'hidden',
       'format' => 'default',
     ),
-    'title' => array(
-      'weight' => '1',
+    'node_link' => array(
+      'weight' => '6',
       'label' => 'hidden',
       'format' => 'default',
+    ),
+  );
+  $export['node|session|default'] = $ds_fieldsetting;
+
+  $ds_fieldsetting = new stdClass();
+  $ds_fieldsetting->api_version = 1;
+  $ds_fieldsetting->id = 'node|session|full';
+  $ds_fieldsetting->entity_type = 'node';
+  $ds_fieldsetting->bundle = 'session';
+  $ds_fieldsetting->view_mode = 'full';
+  $ds_fieldsetting->settings = array(
+    'dummy_share_session' => array(
+      'weight' => '0',
+      'label' => 'hidden',
+      'format' => 'default',
+    ),
+    'facebook_comments_title' => array(
+      'weight' => '4',
+      'label' => 'hidden',
+      'format' => 'default',
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_expert',
+          'fi' => TRUE,
+          'fi-el' => 'h2',
+          'fi-cl' => 'block-title',
+          'fi-at' => '',
+          'fi-def-at' => FALSE,
+          'fi-odd-even' => FALSE,
+        ),
+      ),
+    ),
+    'session_pictures' => array(
+      'weight' => '3',
+      'label' => 'hidden',
+      'format' => 'default',
+    ),
+    'title' => array(
+      'weight' => '0',
+      'label' => 'hidden',
+      'format' => 'default',
+      'formatter_settings' => array(
+        'link' => '0',
+        'wrapper' => 'h1',
+        'class' => '',
+        'ft' => array(),
+      ),
     ),
     'field_video' => array(
       'formatter_settings' => array(
@@ -45,8 +92,85 @@ function session_ds_field_settings_info() {
         ),
       ),
     ),
+    'field_band_twitter' => array(
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_expert',
+          'ow' => TRUE,
+          'ow-el' => 'span',
+          'ow-cl' => 'band-twitter',
+          'ow-def-cl' => FALSE,
+          'ow-at' => '',
+          'ow-def-at' => FALSE,
+        ),
+      ),
+    ),
+    'field_band_facebook' => array(
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_expert',
+          'ow' => TRUE,
+          'ow-el' => 'span',
+          'ow-cl' => 'band-facebook',
+          'ow-def-cl' => FALSE,
+          'ow-at' => '',
+          'ow-def-at' => FALSE,
+        ),
+      ),
+    ),
+    'field_band_soundcloud' => array(
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_expert',
+          'ow' => TRUE,
+          'ow-el' => 'span',
+          'ow-cl' => 'band-soundcloud',
+          'ow-def-cl' => FALSE,
+          'ow-at' => '',
+          'ow-def-at' => FALSE,
+        ),
+      ),
+    ),
+    'field_band_website' => array(
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_expert',
+          'ow' => TRUE,
+          'ow-el' => 'span',
+          'ow-cl' => 'band-website',
+          'ow-def-cl' => FALSE,
+          'ow-at' => '',
+          'ow-def-at' => FALSE,
+        ),
+      ),
+    ),
   );
-  $export['node|session|default'] = $ds_fieldsetting;
+  $export['node|session|full'] = $ds_fieldsetting;
+
+  $ds_fieldsetting = new stdClass();
+  $ds_fieldsetting->api_version = 1;
+  $ds_fieldsetting->id = 'node|session|slideshow';
+  $ds_fieldsetting->entity_type = 'node';
+  $ds_fieldsetting->bundle = 'session';
+  $ds_fieldsetting->view_mode = 'slideshow';
+  $ds_fieldsetting->settings = array(
+    'title' => array(
+      'weight' => '1',
+      'label' => 'hidden',
+      'format' => 'default',
+    ),
+    'node_link' => array(
+      'weight' => '2',
+      'label' => 'hidden',
+      'format' => 'default',
+    ),
+    'field_session_slideshow_image' => array(
+      'formatter_settings' => array(
+        'ft' => array(),
+      ),
+    ),
+  );
+  $export['node|session|slideshow'] = $ds_fieldsetting;
 
   $ds_fieldsetting = new stdClass();
   $ds_fieldsetting->api_version = 1;
@@ -56,12 +180,12 @@ function session_ds_field_settings_info() {
   $ds_fieldsetting->view_mode = 'teaser';
   $ds_fieldsetting->settings = array(
     'title' => array(
-      'weight' => '1',
+      'weight' => '2',
       'label' => 'hidden',
       'format' => 'default',
     ),
     'node_link' => array(
-      'weight' => '3',
+      'weight' => '4',
       'label' => 'hidden',
       'format' => 'default',
       'formatter_settings' => array(
@@ -73,7 +197,21 @@ function session_ds_field_settings_info() {
     ),
     'field_session_cover_image' => array(
       'formatter_settings' => array(
-        'ft' => array(),
+        'ft' => array(
+          'func' => 'theme_ds_field_expert',
+          'ow' => TRUE,
+          'ow-el' => 'div',
+          'ow-cl' => 'field-session-cover-image',
+          'ow-def-cl' => FALSE,
+          'ow-at' => '',
+          'ow-def-at' => FALSE,
+          'fi' => TRUE,
+          'fi-el' => 'div',
+          'fi-cl' => 'session-image-wrapper',
+          'fi-at' => '',
+          'fi-def-at' => FALSE,
+          'fi-odd-even' => FALSE,
+        ),
       ),
     ),
   );
@@ -111,6 +249,39 @@ function session_ds_custom_fields_info() {
 
   $ds_field = new stdClass();
   $ds_field->api_version = 1;
+  $ds_field->field = 'dummy_share_session';
+  $ds_field->label = 'Dummy share session';
+  $ds_field->field_type = 6;
+  $ds_field->entities = array(
+    'node' => 'node',
+  );
+  $ds_field->ui_limit = '';
+  $ds_field->properties = array(
+    'block' => 'block|7',
+    'block_render' => '2',
+  );
+  $export['dummy_share_session'] = $ds_field;
+
+  $ds_field = new stdClass();
+  $ds_field->api_version = 1;
+  $ds_field->field = 'facebook_comments_title';
+  $ds_field->label = 'Facebook comments title';
+  $ds_field->field_type = 5;
+  $ds_field->entities = array(
+    'node' => 'node',
+  );
+  $ds_field->ui_limit = '';
+  $ds_field->properties = array(
+    'code' => array(
+      'value' => 'Comments',
+      'format' => 'plain_text',
+    ),
+    'use_token' => 0,
+  );
+  $export['facebook_comments_title'] = $ds_field;
+
+  $ds_field = new stdClass();
+  $ds_field->api_version = 1;
   $ds_field->field = 'session_pictures';
   $ds_field->label = 'Session pictures';
   $ds_field->field_type = 6;
@@ -132,43 +303,6 @@ function session_ds_custom_fields_info() {
  */
 function session_ds_layout_settings_info() {
   $export = array();
-
-  $ds_layout = new stdClass();
-  $ds_layout->api_version = 1;
-  $ds_layout->id = 'node|session|default';
-  $ds_layout->entity_type = 'node';
-  $ds_layout->bundle = 'session';
-  $ds_layout->view_mode = 'default';
-  $ds_layout->layout = 'ds_2col_stacked';
-  $ds_layout->settings = array(
-    'regions' => array(
-      'left' => array(
-        0 => 'session_pictures',
-      ),
-      'header' => array(
-        1 => 'field_video',
-        2 => 'title',
-        3 => 'body',
-      ),
-    ),
-    'fields' => array(
-      'session_pictures' => 'left',
-      'field_video' => 'header',
-      'title' => 'header',
-      'body' => 'header',
-    ),
-    'classes' => array(),
-    'wrappers' => array(
-      'header' => 'div',
-      'left' => 'div',
-      'right' => 'div',
-      'footer' => 'div',
-    ),
-    'layout_wrapper' => 'div',
-    'layout_attributes' => '',
-    'layout_attributes_merge' => 0,
-  );
-  $export['node|session|default'] = $ds_layout;
 
   $ds_layout = new stdClass();
   $ds_layout->api_version = 1;
@@ -237,6 +371,24 @@ function session_ds_layout_settings_info() {
     'layout_attributes_merge' => 0,
   );
   $export['node|webform|default'] = $ds_layout;
+
+  return $export;
+}
+
+/**
+ * Implements hook_ds_view_modes_info().
+ */
+function session_ds_view_modes_info() {
+  $export = array();
+
+  $ds_view_mode = new stdClass();
+  $ds_view_mode->api_version = 1;
+  $ds_view_mode->view_mode = 'slideshow';
+  $ds_view_mode->label = 'Slideshow';
+  $ds_view_mode->entities = array(
+    'node' => 'node',
+  );
+  $export['slideshow'] = $ds_view_mode;
 
   return $export;
 }
