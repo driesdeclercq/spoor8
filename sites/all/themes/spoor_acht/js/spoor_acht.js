@@ -41,7 +41,7 @@ $('#session-carousel').carouFredSel({
 
     $('#session-thumbs').carouFredSel({
       responsive: true,
-      circular: false,
+      circular: true,
       infinite: false,
       auto: false,
       prev: '#prev',

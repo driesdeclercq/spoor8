@@ -42,7 +42,7 @@
     <div id="content-wrapper" class="l-container-wide clearfix">
       <?php if ($page['precontent']): ?>
         <div id="pre-content" class="l-container-wide hidden clearfix">
-          <?php print $page['precontent']; ?>
+          <?php print render($page['precontent']); ?>
         </div>
       <?php endif; ?>
       <div id="content" class="l-container clearfix">
