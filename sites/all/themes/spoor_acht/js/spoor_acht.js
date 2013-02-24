@@ -115,7 +115,7 @@ $(window).resize(function() {
             var backgroundPosition = (currentHeight - maxHeight) + 'px';
             $("#content-wrapper").css({'background-position-y' : backgroundPosition});
 
-           /* Trim text on session detail.
+           // Trim text on session detail.
             var maxWidth = 399;
             var maxHeight = 160;
             var currentWidth = $(".node-session .field-name-title").width();
@@ -135,7 +135,6 @@ $(window).resize(function() {
               var trimmedText = trimmedText.trim().substring(0, position).split(" ").slice(0, -1).join(" ") + "...";
               $(".node-session .field-name-body").html('<p>' + trimmedText + '</p>');
             }
-          */
          }
       }
     }

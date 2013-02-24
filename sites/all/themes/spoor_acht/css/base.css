@@ -40,6 +40,7 @@ blockquote {
 }
 h1 {
   border-bottom: 1px solid #b7b7b7;
+  box-shadow: 0 1px 1px rgba(255,255,255, 0.6);
   font-size: 35px;
   line-height: 1.39em;
   margin: 0.8em 0;
@@ -62,6 +63,7 @@ h3,
 }
 .node-page h2.block-title {
   border-bottom: 1px solid #b7b7b7;
+  box-shadow: 0 1px 1px rgba(255,255,255, 0.6);
   margin: 0 0 1.3em;
   padding: 0 0 1em;
 }
@@ -381,6 +383,18 @@ sub {
 #admin-menu {
   margin: 0;
   padding: 0;
+}
+.ajax-progress {
+  position: fixed;
+}
+
+.ajax-progress .throbber {
+  background: transparent url(../images/136166277918.gif) no-repeat 0px 0px;
+  /* background: transparent url(../images/ajax-loader.gif) no-repeat 0px 0px; */
+  float: left; /* LTR */
+  height: 15px;
+  margin: 2px;
+  width: 45px;
 }
 
 /**
