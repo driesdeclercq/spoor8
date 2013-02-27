@@ -428,6 +428,16 @@
   video       | marge     | body
   54.8828125	| 6.1523437	| 38.9648437	= 99.9999999%
   */
+  
+  .node-news-item.view-mode-full .group-left {
+    width: 60.546875%;
+    margin-right: 7.91015625%;
+    margin-bottom: 50px;
+  }
+  .node-news-item.view-mode-full .group-right {
+    float: right;
+    width: 31.54296875%;
+  }
   .node-type-news-item .field-name-field-news-image {
     margin-bottom: 10px;
   }
@@ -444,14 +454,14 @@
     color: #424242;
     font-size: 11px;
   }  
-  .node-type-news-item .field-name-facebook-comments-title {
+  .node-type-news-item h2.block-title {
     font-family: 'Francois One', sans-serif;
     font-size: 18px;
     margin: 1.1em 0 1.1em;
     border-bottom: 1px solid #ccc;
     padding-bottom: 0.9em;
   }
-  .node-type-news-item .field-name-facebook-comments-title p {
+  .node-type-news-item h2.block-title p {
     margin: 0;
   }
   
@@ -550,9 +560,7 @@
 
 }
 /* Dummy Share block (on session and news deatail pages) */
-.node-type-news-item .field-name-dummy-share-session {
-  margin-left: 100px;
-}
+
 .node-type-news-item .group-right h2.block-title, 
 .node-type-news-item .field-name-session-pictures h2, 
 .node-session .group-right h2.block-title,

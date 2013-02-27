@@ -549,3 +549,47 @@ h3.crew-member {
   text-align: center;
   text-decoration: none;
 }
+
+
+/* Special classes */
+
+a.big-button,.big-button a {
+  box-shadow: 2px 2px 2px rgba(0,0,0,0.4), -1px -1px 2px rgba(0,0,0,0.4);
+  padding: 4px 10px;
+  color: #f0f0f0;
+  font-size: 12px;
+  line-height: 19px;
+  border: 1px solid #efefef;
+  border-radius: 3px;
+  text-decoration: none;
+  text-transform: uppercase;
+  background-image: linear-gradient(bottom, rgb(96,98,65) 11%, rgb(118,120,73) 56%, rgb(124,126,74) 67%);
+  background-image: -o-linear-gradient(bottom, rgb(96,98,65) 11%, rgb(118,120,73) 56%, rgb(124,126,74) 67%);
+  background-image: -moz-linear-gradient(bottom, rgb(96,98,65) 11%, rgb(118,120,73) 56%, rgb(124,126,74) 67%);
+  background-image: -webkit-linear-gradient(bottom, rgb(96,98,65) 11%, rgb(118,120,73) 56%, rgb(124,126,74) 67%);
+  background-image: -ms-linear-gradient(bottom, rgb(96,98,65) 11%, rgb(118,120,73) 56%, rgb(124,126,74) 67%);
+  background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0.11, rgb(96,98,65)),
+    color-stop(0.56, rgb(118,120,73)),
+    color-stop(0.67, rgb(124,126,74))
+  );
+}
+a.big-button:hover, .big-button a:hover {
+  background-image: linear-gradient(bottom, rgb(90,91,60) 9%, rgb(105,107,65) 55%, rgb(118,118,66) 78%);
+  background-image: -o-linear-gradient(bottom, rgb(90,91,60) 9%, rgb(105,107,65) 55%, rgb(118,118,66) 78%);
+  background-image: -moz-linear-gradient(bottom, rgb(90,91,60) 9%, rgb(105,107,65) 55%, rgb(118,118,66) 78%);
+  background-image: -webkit-linear-gradient(bottom, rgb(90,91,60) 9%, rgb(105,107,65) 55%, rgb(118,118,66) 78%);
+  background-image: -ms-linear-gradient(bottom, rgb(90,91,60) 9%, rgb(105,107,65) 55%, rgb(118,118,66) 78%);
+
+  background-image: -webkit-gradient(
+  linear,
+  left bottom,
+  left top,
+  color-stop(0.09, rgb(90,91,60)),
+  color-stop(0.55, rgb(105,107,65)),
+  color-stop(0.78, rgb(118,118,66))
+  );
+}
