@@ -13,6 +13,13 @@ function news_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'additional_settings__active_tab_news_item';
+  $strongarm->value = 'edit-i18n-sync';
+  $export['additional_settings__active_tab_news_item'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'date_format_short';
   $strongarm->value = 'd/m/Y';
   $export['date_format_short'] = $strongarm;
@@ -54,7 +61,7 @@ function news_strongarm() {
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '2',
+          'weight' => '3',
         ),
       ),
       'display' => array(
@@ -68,7 +75,7 @@ function news_strongarm() {
             'visible' => FALSE,
           ),
           'teaser' => array(
-            'weight' => '16',
+            'weight' => '15',
             'visible' => FALSE,
           ),
         ),
@@ -78,7 +85,7 @@ function news_strongarm() {
             'visible' => TRUE,
           ),
           'teaser' => array(
-            'weight' => '17',
+            'weight' => '16',
             'visible' => FALSE,
           ),
         ),

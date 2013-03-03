@@ -26,6 +26,17 @@ function news_ds_field_settings_info() {
       'weight' => '4',
       'label' => 'hidden',
       'format' => 'default',
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_expert',
+          'fi' => TRUE,
+          'fi-el' => 'h2',
+          'fi-cl' => 'block-title',
+          'fi-at' => '',
+          'fi-def-at' => FALSE,
+          'fi-odd-even' => FALSE,
+        ),
+      ),
     ),
     'post_date' => array(
       'weight' => '3',
@@ -46,6 +57,19 @@ function news_ds_field_settings_info() {
         ),
       ),
     ),
+    'field_news_link' => array(
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_expert',
+          'fi' => TRUE,
+          'fi-el' => 'div',
+          'fi-cl' => 'big-button field-name-field-news-link',
+          'fi-at' => '',
+          'fi-def-at' => FALSE,
+          'fi-odd-even' => FALSE,
+        ),
+      ),
+    ),
   );
   $export['node|news_item|full'] = $ds_fieldsetting;
 
@@ -57,7 +81,12 @@ function news_ds_field_settings_info() {
   $ds_fieldsetting->view_mode = 'teaser';
   $ds_fieldsetting->settings = array(
     'dummy_share_session' => array(
-      'weight' => '5',
+      'weight' => '7',
+      'label' => 'hidden',
+      'format' => 'default',
+    ),
+    'image_background' => array(
+      'weight' => '4',
       'label' => 'hidden',
       'format' => 'default',
     ),
@@ -87,8 +116,82 @@ function news_ds_field_settings_info() {
         ),
       ),
     ),
+    'field_news_link' => array(
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_expert',
+          'fi' => TRUE,
+          'fi-el' => 'div',
+          'fi-cl' => 'big-button field-name-field-news-link',
+          'fi-at' => '',
+          'fi-def-at' => FALSE,
+          'fi-odd-even' => FALSE,
+        ),
+      ),
+    ),
   );
   $export['node|news_item|teaser'] = $ds_fieldsetting;
+
+  return $export;
+}
+
+/**
+ * Implements hook_ds_custom_fields_info().
+ */
+function news_ds_custom_fields_info() {
+  $export = array();
+
+  $ds_field = new stdClass();
+  $ds_field->api_version = 1;
+  $ds_field->field = 'image_background';
+  $ds_field->label = 'Image background';
+  $ds_field->field_type = 5;
+  $ds_field->entities = array(
+    'node' => 'node',
+  );
+  $ds_field->ui_limit = '';
+  $ds_field->properties = array(
+    'code' => array(
+      'value' => '<div class="news-image-background"></div>',
+      'format' => 'full_html',
+    ),
+    'use_token' => 0,
+  );
+  $export['image_background'] = $ds_field;
+
+  $ds_field = new stdClass();
+  $ds_field->api_version = 1;
+  $ds_field->field = 'image_overlay';
+  $ds_field->label = 'Image overlay';
+  $ds_field->field_type = 5;
+  $ds_field->entities = array(
+    'node' => 'node',
+  );
+  $ds_field->ui_limit = '';
+  $ds_field->properties = array(
+    'code' => array(
+      'value' => '<p>&lt;div class="news-image-background"&gt;</p>
+<p>&lt;/div&gt;</p>',
+      'format' => 'filtered_html',
+    ),
+    'use_token' => 0,
+  );
+  $export['image_overlay'] = $ds_field;
+
+  $ds_field = new stdClass();
+  $ds_field->api_version = 1;
+  $ds_field->field = 'recent_posts';
+  $ds_field->label = 'Recent posts';
+  $ds_field->field_type = 6;
+  $ds_field->entities = array(
+    'node' => 'node',
+  );
+  $ds_field->ui_limit = '';
+  $ds_field->properties = array(
+    'block' => 'views|news-block_1',
+    'block_render' => '1',
+  );
+  $export['recent_posts'] = $ds_field;
 
   return $export;
 }
@@ -180,32 +283,35 @@ function news_ds_layout_settings_info() {
   $ds_layout->entity_type = 'node';
   $ds_layout->bundle = 'news_item';
   $ds_layout->view_mode = 'teaser';
-  $ds_layout->layout = 'ds_2col_stacked';
+  $ds_layout->layout = 'ds_1col';
   $ds_layout->settings = array(
     'regions' => array(
-      'left' => array(
+      'ds_content' => array(
         0 => 'title',
         1 => 'post_date',
-        2 => 'field_news_image',
-        3 => 'body',
-        4 => 'field_news_link',
-        5 => 'dummy_share_session',
+        2 => 'group_news',
+        3 => 'field_news_image',
+        4 => 'image_background',
+        5 => 'group_news_body',
+        6 => 'body',
+        7 => 'field_news_link',
+        8 => 'dummy_share_session',
       ),
     ),
     'fields' => array(
-      'title' => 'left',
-      'post_date' => 'left',
-      'field_news_image' => 'left',
-      'body' => 'left',
-      'field_news_link' => 'left',
-      'dummy_share_session' => 'left',
+      'title' => 'ds_content',
+      'post_date' => 'ds_content',
+      'group_news' => 'ds_content',
+      'field_news_image' => 'ds_content',
+      'image_background' => 'ds_content',
+      'group_news_body' => 'ds_content',
+      'body' => 'ds_content',
+      'field_news_link' => 'ds_content',
+      'dummy_share_session' => 'ds_content',
     ),
     'classes' => array(),
     'wrappers' => array(
-      'header' => 'div',
-      'left' => 'div',
-      'right' => 'div',
-      'footer' => 'div',
+      'ds_content' => 'div',
     ),
     'layout_wrapper' => 'div',
     'layout_attributes' => '',
