@@ -1,4 +1,4 @@
-name = Spoor Acht
+name = Spoor Acht profile
 description = Install with commonly used features pre-configured.
 version = VERSION
 core = 7.x

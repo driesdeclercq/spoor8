@@ -1,7 +1,7 @@
-name = Spoor 8 custom module
+name = Spoor 8 module
 description = Custom module which contains all code for 2.x version of the site.
 core = 7.x
-package = ECI-LE - 2.x
+package = Spoor 8
 
 ; Contrib
 dependencies[] = admin_menu
