@@ -1,0 +1,4 @@
+name = Spoor 8 share buttons
+description = Adds a custom field with social share buttons.
+core = 7.x
+package = Spoor 8

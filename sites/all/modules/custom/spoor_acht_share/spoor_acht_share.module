@@ -1,0 +1,221 @@
+<?php
+/**
+ * @file
+ * An example field using the Field Types API.
+ */
+
+/**
+ * @defgroup field_example Example: Field Types API
+ * @ingroup examples
+ * @{
+ * Examples using Field Types API.
+ *
+ * This is updated from Barry Jaspan's presentation at Drupalcon Paris,
+ * @link http://acquia.com/community/resources/acquia-tv/intro-field-api-module-developers Video Presentation @endlink
+ *
+ * Providing a field requires:
+ * - Defining a field:
+ *   - hook_field_info()
+ *   - hook_field_schema()
+ *   - hook_field_validate()
+ *   - hook_field_is_empty()
+ *
+ * - Defining a formatter for the field (the portion that outputs the field for
+ *   display):
+ *   - hook_field_formatter_info()
+ *   - hook_field_formatter_view()
+ *
+ * - Defining a widget for the edit form:
+ *   - hook_field_widget_info()
+ *   - hook_field_widget_form()
+ *
+ * Our module defines the field in spoor_acht_share_field_info(),
+ * spoor_acht_share_field_validate() and spoor_acht_share_field_is_empty().
+ * spoor_acht_share_field_schema() is implemented in field_example.install.
+ *
+ * Our module sets up a formatter in spoor_acht_share_field_formatter_info() and
+ * spoor_acht_share_field_formatter_view(). These are the API hooks that present
+ * formatted and themed output to the user.
+
+ * And finally, our module defines the widet in
+ * spoor_acht_share_field_widget_info() and spoor_acht_share_field_widget_form().
+ * The widget is the form element used to receive input from the user
+ * when the field is being populated.
+ *
+ * @see field_types
+ * @see field
+ */
+
+/***************************************************************
+ * Field Type API hooks
+ ***************************************************************/
+
+/**
+ * Implements hook_field_info().
+ *
+ * Provides the description of the field.
+ */
+function spoor_acht_share_field_info() {
+  return array(
+    // We name our field as the associative name of the array.
+    'spoor_acht_share' => array(
+      'label' => t('Spoor 8 share buttons'),
+      'description' => t('Demonstrates a field composed of an RGB color.'),
+      'default_widget' => 'spoor_acht_share_buttons_icons',
+      'default_formatter' => 'spoor_acht_share_simple',
+    ),
+  );
+}
+
+/**
+ * Implements hook_field_is_empty().
+ *
+ * hook_field_is_emtpy() is where Drupal asks us if this field is empty.
+ * Return TRUE if it does not contain data, FALSE if it does. This lets
+ * the form API flag an error when required fields are empty.
+ */
+function spoor_acht_share_field_is_empty($item, $field) {
+  return FALSE;
+}
+
+/**
+ * Implements hook_field_formatter_info().
+ *
+ * We need to tell Drupal that we have two different types of formatters
+ * for this field. One will change the text color, and the other will
+ * change the background color.
+ *
+ * @see spoor_acht_share_field_formatter_view()
+ */
+function spoor_acht_share_field_formatter_info() {
+  return array(
+    // This formatter just displays the hex value in the color indicated.
+    'spoor_acht_share_simple' => array(
+      'label' => t('Spoor 8 share icons'),
+      'field types' => array('spoor_acht_share'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_field_formatter_view().
+ *
+ * Two formatters are implemented.
+ * - spoor_acht_share_simple just outputs markup indicating the color that
+ *   was entered and uses an inline style to set the text color to that value.
+ * - spoor_acht_share_color_background does the same but also changes the
+ *   background color of div.region-content.
+ *
+ * @see spoor_acht_share_field_formatter_info()
+ */
+function spoor_acht_share_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  $element = array();
+
+  switch ($display['type']) {
+    // This formatter simply outputs the field as text and with a color.
+    case 'spoor_acht_share_simple':
+      foreach ($items as $delta => $item) {
+        if ($item['spoor_acht_share'] == '1') {
+          $element[$delta] = array(
+            '#theme' => 'spoor_acht_share_icons',
+            '#entity' => $entity,
+          );
+        }
+      }
+      break;
+  }
+
+  return $element;
+}
+
+/**
+ * Implements hook_field_widget_info().
+ *
+ * Three widgets are provided.
+ * - A simple text-only widget where the user enters the '#ffffff'.
+ * - A 3-textfield widget that gathers the red, green, and blue values
+ *   separately.
+ * - A farbtastic colorpicker widget that chooses the value graphically.
+ *
+ * These widget types will eventually show up in hook_field_widget_form,
+ * where we will have to flesh them out.
+ *
+ * @see spoor_acht_share_field_widget_form()
+ */
+function spoor_acht_share_field_widget_info() {
+  return array(
+    'spoor_acht_share_buttons_icons' => array(
+      'label' => t('Share button icons'),
+      'field types' => array('spoor_acht_share'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_field_widget_form().
+ *
+ * hook_widget_form() is where Drupal tells us to create form elements for
+ * our field's widget.
+ *
+ * We provide one of three different forms, depending on the widget type of
+ * the Form API item provided.
+ *
+ * The 'spoor_acht_share_colorpicker' and 'spoor_acht_share_buttons_icons' are essentially
+ * the same, but spoor_acht_share_colorpicker adds a javascript colorpicker
+ * helper.
+ *
+ * spoor_acht_share_3text displays three text fields, one each for red, green,
+ * and blue. However, the field type defines a single text column,
+ * rgb, which needs an HTML color spec. Define an element validate
+ * handler that converts our r, g, and b fields into a simulated single
+ * 'rgb' form element.
+ */
+function spoor_acht_share_field_widget_form(&$form, &$form_state, $field, $instance, $langcode, $items, $delta, $element) {
+  $value = isset($items[$delta]['spoor_acht_share']) ? (int) $items[$delta]['spoor_acht_share'] : 1;
+
+  $widget = $element;
+  $widget['#delta'] = $delta;
+
+  switch ($instance['widget']['type']) {
+    case 'spoor_acht_share_buttons_icons':
+      $widget += array(
+        '#type' => 'checkbox',
+        '#title' => t('Show the share buttons.'),
+        '#default_value' => $value,
+      );
+      break;
+  }
+
+  $element['spoor_acht_share'] = $widget;
+  return $element;
+}
+
+/**
+ * Implements hook_field_widget_error().
+ *
+ * hook_field_widget_error() lets us figure out what to do with errors
+ * we might have generated in hook_field_validate(). Generally, we'll just
+ * call form_error().
+ *
+ * @see spoor_acht_share_field_validate()
+ * @see form_error()
+ */
+function spoor_acht_share_field_widget_error($element, $error, $form, &$form_state) {
+  switch ($error['error']) {
+    case 'spoor_acht_share_invalid':
+      form_error($element, $error['message']);
+      break;
+  }
+}
+
+function spoor_acht_share_theme() {
+  return array(
+    'spoor_acht_share_icons' => array(
+      'variables' => array(
+        'entity' => NULL,
+        'attributes' => array()
+      ),
+      'file' => ('inc/spoor_acht_share.theme.inc')
+    ),
+  );
+}
