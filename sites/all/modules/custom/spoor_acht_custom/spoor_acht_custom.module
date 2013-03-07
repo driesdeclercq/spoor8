@@ -1,6 +1,6 @@
 <?php
 
-function spoor_acht_custom_form_alter(&$form, $form_state, $form_id) { 
+/*function spoor_acht_custom_form_alter(&$form, $form_state, $form_id) { 
   if ($form_state['view']->name == 'news') {
     // Add our custom All buttons.
     $form['field_news_category_tid']['#options'] = array("-ALL-" => t("- All -")) + $form['field_news_category_tid']['#options'];
@@ -14,5 +14,5 @@ function spoor_acht_custom_exposed_form_submit(&$form, &$form_state) {
     unset($options['-ALL-']);
     $form_state['values']['field_news_category_tid'] = $options;
   }
-}
+}*/
 

@@ -475,10 +475,15 @@
   .page-news #block-views-news-block-1,.page-news #block-views-exp-news-page {
     float: right;
     width: 31.54296875%;
+    margin-bottom: 2.1em;
   }
-  
+  .page-news .views-row h2 {
+    margin: 1.1em 0 0.3em 0;
+    font-size: 22px;
+  }  
   .page-news .field-post-date {
     color: #7a7c4a;
+    border-bottom: 1px solid #ccc;
   } 
   .page-news .field-post-date span.label-inline {
     color: #424242;
@@ -496,7 +501,7 @@
     z-index: 10;
   } 
   .page-news fieldset.group-news {
-    margin: 0;
+    margin: 10px 0 20px 0;
     padding: 1.6% 0 0 0;
     background: url('/sites/all/themes/spoor_acht/images/bg_news_item_header_top.png') no-repeat;
   }
@@ -532,6 +537,48 @@
     width: 43%;
     margin: 0;
   }
+  .page-news .views-field-title a, .page-news .views-field-title a:hover {   
+    font-size: 12px;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 2.3846em;
+    text-decoration: none;
+  }
+  
+  .page-news .views-exposed-form label{   
+    display: none;
+  }  
+  .page-news #block-views-exp-news-page h2, .page-news #block-views-news-block-1 h2 {   
+    margin: 1.1em 0 1.1em;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 0.9em;
+    font-size: 18px; 
+  }
+  .page-news .views-exposed-form label.option {   
+    display: inline-block;
+    font-family: 'Arvo',serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 2.3846em;
+    color: #797b49;
+    width: 40%
+  }
+  .page-news .views-exposed-form a.bef-toggle, .page-news .views-exposed-form .form-checkboxes {   
+    width: 100%;
+  }
+  .page-news .views-exposed-form a.bef-toggle {
+    text-decoration: none;
+  }
+  .page-news .views-exposed-form input[type="checkbox"] {   
+    margin: 0 1% 0 0;
+  }
+  .page-news .view-news .item-list {  
+    margin: 2.1em 0 1.1em 0;
+    position: absolute;
+    width: 100%;
+  }
+
 
   /**
    * Footer
@@ -635,12 +682,14 @@
   margin: 0.7em 0 1.1em;
   border-bottom: 1px solid #ccc;
   padding-bottom: 0.9em;
-}
-.node-type-news-item .group-right h2.block-title, .node-session .group-right h2.block-title {
+} 
+.node-type-news-item .group-right h2.block-title,
+.node-session .group-right h2.block-title {
   font-size: 18px;
   margin-top: 1.1em;
 }
-.node-type-news-item .group-right h2.block-title p, .node-session .group-right h2.block-title p {
+.node-type-news-item .group-right h2.block-title p,
+.node-session .group-right h2.block-title p {
   margin: 0;
 }
 .node-type-news-item .group-right h2.block-title {

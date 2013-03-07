@@ -116,6 +116,11 @@ function news_ds_field_settings_info() {
         ),
       ),
     ),
+    'body' => array(
+      'formatter_settings' => array(
+        'ft' => array(),
+      ),
+    ),
     'field_news_link' => array(
       'formatter_settings' => array(
         'ft' => array(

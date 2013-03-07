@@ -22,7 +22,7 @@ function news_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'News';
+  $handler->display->display_options['title'] = 'Nieuws';
   $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
@@ -82,9 +82,9 @@ function news_views_default_views() {
       'secondary_label' => 'Advanced options',
     ),
     'field_news_category_tid' => array(
-      'bef_format' => 'bef_links',
+      'bef_format' => 'bef',
       'more_options' => array(
-        'bef_select_all_none' => 0,
+        'bef_select_all_none' => 1,
         'bef_collapsible' => 0,
         'is_secondary' => 0,
         'bef_filter_description' => '',
