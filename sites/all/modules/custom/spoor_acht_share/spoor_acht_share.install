@@ -1,0 +1,15 @@
+<?php
+
+
+function spoor_acht_share_field_schema($field) {
+  $columns = array(
+    'spoor_acht_share' => array('type' => 'int', 'default' => 1, 'not null' => TRUE),
+  );
+  $indexes = array(
+    'spoor_acht_share' => array('spoor_acht_share'),
+  );
+  return array(
+    'columns' => $columns,
+    'indexes' => $indexes,
+  );
+}
