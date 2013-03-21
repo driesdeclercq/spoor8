@@ -10,34 +10,23 @@
 function session_field_default_fields() {
   $fields = array();
 
-  // Exported field: 'node-session-body'.
-  $fields['node-session-body'] = array(
+  // Exported field: 'node-session-field_addthis'.
+  $fields['node-session-field_addthis'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
-      'entity_types' => array(
-        0 => 'node',
-      ),
-      'field_name' => 'body',
-      'foreign keys' => array(
-        'format' => array(
-          'columns' => array(
-            'format' => 'format',
-          ),
-          'table' => 'filter_format',
-        ),
-      ),
-      'indexes' => array(
-        'format' => array(
-          0 => 'format',
-        ),
-      ),
+      'entity_types' => array(),
+      'field_name' => 'field_addthis',
+      'foreign keys' => array(),
+      'indexes' => array(),
       'locked' => '0',
-      'module' => 'text',
-      'settings' => array(),
+      'module' => 'addthis',
+      'settings' => array(
+        'max_length' => 255,
+      ),
       'translatable' => '0',
-      'type' => 'text_with_summary',
+      'type' => 'addthis',
     ),
     'field_instance' => array(
       'bundle' => 'session',
@@ -46,54 +35,51 @@ function session_field_default_fields() {
       'description' => '',
       'display' => array(
         'default' => array(
-          'label' => 'hidden',
-          'module' => 'text',
+          'label' => 'above',
+          'module' => 'addthis',
           'settings' => array(),
-          'type' => 'text_default',
-          'weight' => '2',
+          'type' => 'addthis_disabled',
+          'weight' => '5',
         ),
         'full' => array(
-          'label' => 'hidden',
-          'module' => 'text',
-          'settings' => array(),
-          'type' => 'text_default',
-          'weight' => '2',
+          'label' => 'above',
+          'module' => 'addthis_displays',
+          'settings' => array(
+            'buttons_size' => 'addthis_32x32_style',
+            'counter_orientation' => 'horizontal',
+            'extra_css' => '',
+            'share_services' => 'facebook,twitter,pinterest,google_plusone_share',
+          ),
+          'type' => 'addthis_basic_toolbox',
+          'weight' => '0',
         ),
         'slideshow' => array(
-          'label' => 'hidden',
+          'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '14',
+          'weight' => 0,
         ),
         'teaser' => array(
-          'label' => 'hidden',
-          'module' => 'text',
-          'settings' => array(
-            'trim_length' => '160',
-          ),
-          'type' => 'text_summary_or_trimmed',
-          'weight' => '3',
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '0',
         ),
       ),
       'ds_extras_field_template' => '',
       'entity_type' => 'node',
-      'field_name' => 'body',
-      'label' => 'Body',
-      'required' => 0,
+      'field_name' => 'field_addthis',
+      'label' => 'AddThis',
+      'required' => FALSE,
       'settings' => array(
-        'display_summary' => 1,
-        'text_processing' => '1',
         'user_register_form' => FALSE,
       ),
       'widget' => array(
-        'active' => 1,
-        'module' => 'text',
-        'settings' => array(
-          'rows' => '20',
-          'summary_rows' => 5,
-        ),
-        'type' => 'text_textarea_with_summary',
-        'weight' => '2',
+        'active' => 0,
+        'module' => 'addthis',
+        'settings' => array(),
+        'type' => 'addthis_button_widget',
+        'weight' => '40',
       ),
     ),
   );
@@ -136,10 +122,9 @@ function session_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'link',
           'settings' => array(),
-          'type' => 'link_default',
-          'weight' => '19',
+          'type' => 'hidden',
+          'weight' => '25',
         ),
         'full' => array(
           'label' => 'hidden',
@@ -158,7 +143,7 @@ function session_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '14',
+          'weight' => '21',
         ),
       ),
       'ds_extras_field_template' => '',
@@ -234,10 +219,9 @@ function session_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'link',
           'settings' => array(),
-          'type' => 'link_default',
-          'weight' => '20',
+          'type' => 'hidden',
+          'weight' => '26',
         ),
         'full' => array(
           'label' => 'hidden',
@@ -256,7 +240,7 @@ function session_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '17',
+          'weight' => '24',
         ),
       ),
       'ds_extras_field_template' => '',
@@ -332,10 +316,9 @@ function session_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'link',
           'settings' => array(),
-          'type' => 'link_default',
-          'weight' => '18',
+          'type' => 'hidden',
+          'weight' => '24',
         ),
         'full' => array(
           'label' => 'hidden',
@@ -354,7 +337,7 @@ function session_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '15',
+          'weight' => '22',
         ),
       ),
       'ds_extras_field_template' => '',
@@ -430,10 +413,9 @@ function session_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'link',
           'settings' => array(),
-          'type' => 'link_default',
-          'weight' => '21',
+          'type' => 'hidden',
+          'weight' => '27',
         ),
         'full' => array(
           'label' => 'hidden',
@@ -452,7 +434,7 @@ function session_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '18',
+          'weight' => '25',
         ),
       ),
       'ds_extras_field_template' => '',
@@ -486,6 +468,88 @@ function session_field_default_fields() {
         'settings' => array(),
         'type' => 'link_field',
         'weight' => '38',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-session-field_intro_text'.
+  $fields['node-session-field_intro_text'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_intro_text',
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'text',
+      'settings' => array(),
+      'translatable' => '0',
+      'type' => 'text_long',
+    ),
+    'field_instance' => array(
+      'bundle' => 'session',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => 'A short intro text for the session overview page and show next to video on narrow screens.',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '2',
+        ),
+        'full' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '2',
+        ),
+        'slideshow' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'teaser' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '2',
+        ),
+      ),
+      'ds_extras_field_template' => '',
+      'entity_type' => 'node',
+      'field_name' => 'field_intro_text',
+      'label' => 'Intro text',
+      'required' => 1,
+      'settings' => array(
+        'text_processing' => '0',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'text',
+        'settings' => array(
+          'rows' => '2',
+        ),
+        'type' => 'text_textarea',
+        'weight' => '2',
       ),
     ),
   );
@@ -527,19 +591,15 @@ function session_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'image',
-          'settings' => array(
-            'image_link' => '',
-            'image_style' => '',
-          ),
-          'type' => 'image',
-          'weight' => '16',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '22',
         ),
         'full' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '20',
+          'weight' => '24',
         ),
         'slideshow' => array(
           'label' => 'above',
@@ -555,7 +615,7 @@ function session_field_default_fields() {
             'image_style' => 'session_overview',
           ),
           'type' => 'image',
-          'weight' => '1',
+          'weight' => '0',
         ),
       ),
       'ds_extras_field_template' => '',
@@ -582,7 +642,7 @@ function session_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'image_image',
-        'weight' => '7',
+        'weight' => '5',
       ),
     ),
   );
@@ -624,19 +684,15 @@ function session_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'hidden',
-          'module' => 'image',
-          'settings' => array(
-            'image_link' => '',
-            'image_style' => '',
-          ),
-          'type' => 'image',
-          'weight' => '15',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '21',
         ),
         'full' => array(
           'label' => 'hidden',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '19',
+          'weight' => '23',
         ),
         'slideshow' => array(
           'label' => 'hidden',
@@ -648,7 +704,7 @@ function session_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '20',
+          'weight' => '27',
         ),
       ),
       'ds_extras_field_template' => '',
@@ -675,7 +731,7 @@ function session_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'image_image',
-        'weight' => '9',
+        'weight' => '7',
       ),
     ),
   );
@@ -717,19 +773,15 @@ function session_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'image',
-          'settings' => array(
-            'image_link' => '',
-            'image_style' => '',
-          ),
-          'type' => 'image',
-          'weight' => 22,
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '28',
         ),
         'full' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '18',
         ),
         'slideshow' => array(
           'label' => 'above',
@@ -745,7 +797,7 @@ function session_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '20',
         ),
       ),
       'ds_extras_field_template' => '',
@@ -772,7 +824,88 @@ function session_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'image_image',
-        'weight' => '8',
+        'weight' => '6',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-session-field_session_text'.
+  $fields['node-session-field_session_text'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_session_text',
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'text',
+      'settings' => array(),
+      'translatable' => '0',
+      'type' => 'text_long',
+    ),
+    'field_instance' => array(
+      'bundle' => 'session',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => 'Some more text about this session. Shown on session detail.',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '3',
+        ),
+        'full' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '3',
+        ),
+        'slideshow' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '19',
+        ),
+      ),
+      'ds_extras_field_template' => '',
+      'entity_type' => 'node',
+      'field_name' => 'field_session_text',
+      'label' => 'Session text',
+      'required' => 1,
+      'settings' => array(
+        'text_processing' => '0',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'text',
+        'settings' => array(
+          'rows' => '5',
+        ),
+        'type' => 'text_textarea',
+        'weight' => '3',
       ),
     ),
   );
@@ -834,7 +967,7 @@ function session_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '16',
+          'weight' => '23',
         ),
       ),
       'ds_extras_field_template' => '',
@@ -853,25 +986,115 @@ function session_field_default_fields() {
           'rows' => '5',
         ),
         'type' => 'text_textarea',
-        'weight' => '3',
+        'weight' => '4',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-session-field_video_vimeo_id'.
+  $fields['node-session-field_video_vimeo_id'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_video_vimeo_id',
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'text',
+      'settings' => array(
+        'max_length' => '14',
+      ),
+      'translatable' => '0',
+      'type' => 'text',
+    ),
+    'field_instance' => array(
+      'bundle' => 'session',
+      'default_value' => array(
+        0 => array(
+          'value' => '58848645',
+        ),
+      ),
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '29',
+        ),
+        'full' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '19',
+        ),
+        'slideshow' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '17',
+        ),
+      ),
+      'ds_extras_field_template' => '',
+      'entity_type' => 'node',
+      'field_name' => 'field_video_vimeo_id',
+      'label' => 'Vimeo ID',
+      'required' => 0,
+      'settings' => array(
+        'text_processing' => '0',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'text',
+        'settings' => array(
+          'size' => '20',
+        ),
+        'type' => 'text_textfield',
+        'weight' => '10',
       ),
     ),
   );
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('A short intro text for the session overview page and show next to video on narrow screens.');
   t('Add the Vimeo embed code.');
+  t('AddThis');
   t('Band Facebook');
   t('Band SoundCloud');
   t('Band Twitter');
   t('Band website');
-  t('Body');
   t('Cover image');
   t('Images');
+  t('Intro text');
+  t('Session text');
   t('Slideshow image');
+  t('Some more text about this session. Shown on session detail.');
   t('The large image for the homepage sldieshow');
   t('The session images for the session detail page');
   t('Video');
+  t('Vimeo ID');
 
   return $fields;
 }

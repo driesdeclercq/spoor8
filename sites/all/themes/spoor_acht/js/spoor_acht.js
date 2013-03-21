@@ -14,131 +14,44 @@
 
   Drupal.spoorAcht = {};
 
- // Drupal.slideShow = {};
+  Drupal.slideShow = {};
+
   $(document).ready(function() {
     Drupal.spoorAcht.setContactToggle();
-
-  //  Drupal.slideShow.element = $('.html-carousel .view-content');
-
-//var trimmedText =+ $(this).text().substr(0, 800).lastIndexOf(" ");
-//      var shortText = $(this).text().trim().substring(0, sumMotherfukkentext).split(" ").slice(0, -1).join(" ") + "...";
-
-
-/* Start carousel */
-$('#session-carousel').carouFredSel({
-      responsive: true,
-      circular: false,
-      auto: false,
-      items: {
-        visible: 1,
-        width: 560,
-        height: '56.25%'
-      },
-      scroll: {
-        fx: 'directscroll'
-      }
-    });
-
-    $('#session-thumbs').carouFredSel({
-      responsive: true,
-      circular: true,
-      infinite: false,
-      auto: false,
-      prev: '#prev',
-      next: '#next',
-      items: {
-        visible: {
-          min: 2,
-          max: 5
-        },
-        width: 90,
-        height: '55.5555556%'
-      }
-    });
-
-    $('#session-thumbs div.thumb-toggle').click(function() {
-      console.log($(this));
-      console.log(this.id.split('id-').pop());
-      $('#session-carousel').trigger('slideTo', '#' + this.id.split('id-').pop());
-      $('#session-thumbs a').removeClass('selected');
-      $(this).addClass('selected');
-      return false;
-    });
-/* End carousel */
-
+    // Show or initialize the slideshow.
+      Drupal.slideShow.enable();
     // Initialise the mobile toolbar.
     Drupal.mobileToolbar.initialise();
 
     // Check the current window width for mobile menu;
     if ($(window).width() < Drupal.breakpoints.medium) {
+      Drupal.spoorAcht.setSessionBackground();
       if (Drupal.mobileToolbar.loaded && $("#mobile-toolbar").hasClass('loaded')) {
         Drupal.mobileToolbar.enable();
       }
     }
-    else {
-      // Show or initialize the slideshow.
-   //   Drupal.slideShow.enable();
-    }
   });
 
-/*
-$(window).resize(function() {
-    if ($(window).width() >= Drupal.breakpoints.medium) {
-      // Show or initialize the slideshow.
-  //    Drupal.slideShow.enable();
+  $(window).resize(function() {
+    if ($(window).width() < Drupal.breakpoints.medium) {
+      // Initialise or enable mobile menu.
+      if (Drupal.mobileToolbar.loaded & $("#mobile-toolbar").hasClass('loaded')) {
+        Drupal.mobileToolbar.enable();
+      }
+      Drupal.spoorAcht.setSessionBackground();
     }
     else {
-      // Hide the slideshow.
-  //    Drupal.slideShow.element.hide();
-    }
-  });
-*/
-  $(window).resize(function() {
-      if ($(window).width() < Drupal.breakpoints.medium) {
-        // Initialise or enable mobile menu.
-        if (Drupal.mobileToolbar.loaded & $("#mobile-toolbar").hasClass('loaded')) {
-          Drupal.mobileToolbar.enable();
-        }
-        // Hide the slideshow.
-  //      Drupal.slideShow.disable();
+      Drupal.mobileToolbar.disable();
+      if ($(window).width() < Drupal.breakpoints.large) {
+        Drupal.spoorAcht.setSessionBackground();
       }
       else {
-        Drupal.mobileToolbar.disable();
-        // Show or initialize the slideshow.
-  //      Drupal.slideShow.enable();
-
-          if ($(window).width() < Drupal.breakpoints.large) {
-            // Background on session detail page. Move the background up, so the
-            // bottom will match the shadow on the video.
-            var maxHeight = 304;
-            var currentHeight = $(".field-session-video").height();
-            var backgroundPosition = (currentHeight - maxHeight) + 'px';
-            $("#content-wrapper").css({'background-position-y' : backgroundPosition});
-
-           // Trim text on session detail.
-            var maxWidth = 399;
-            var maxHeight = 160;
-            var currentWidth = $(".node-session .field-name-title").width();
-            var maxLength = 800;  // width = 1024
-            var theLength = 0;
-            var trimmedText = '';
-            // 1 line = 16px &&  chars;
-
-            $(".node-session .field-name-body p").each( function () {
-              theLength = theLength + $(this).text().length;
-              trimmedText = trimmedText + $(this).text();
-            });
-
-            maxLength = $(window).width() / Drupal.breakpoints.large * 0.6 * maxLength;
-            if (theLength > maxLength) {
-              position = trimmedText.substr(0, Math.round(maxLength)).lastIndexOf(" ");
-              var trimmedText = trimmedText.trim().substring(0, position).split(" ").slice(0, -1).join(" ") + "...";
-              $(".node-session .field-name-body").html('<p>' + trimmedText + '</p>');
-            }
-         }
+        // On session reset the green background.
+        $("#content-wrapper").css({'background-position-y' : '0px'});
       }
     }
-  );
+  }
+);
 
 /*
  * Add Infield labels to the contact form.
@@ -175,6 +88,15 @@ $(window).resize(function() {
     });
   }
 
+  // Background on session detail page. Move the background up, so the
+  // bottom will match the shadow on the video.
+  Drupal.spoorAcht.setSessionBackground = function() {
+    var maxHeight = 304;
+    var currentHeight = $(".field-session-video").height();
+    var backgroundPosition = currentHeight - maxHeight;
+    if (backgroundPosition > 0) {backgroundPosition = -13;}
+    $("#content-wrapper").css({'background-position-y' : backgroundPosition + 'px'});
+  }
   /*
    * Create the mobile toolbar buttons and content.
    */
@@ -241,6 +163,50 @@ $(window).resize(function() {
     Drupal.mobileToolbar.loaded = true;
   }
 
+  /**
+   * Enable slideshow
+   **/
+  Drupal.slideShow.enable = function() {
+    $('#session-carousel').carouFredSel({
+      responsive: true,
+      circular: false,
+      auto: false,
+      items: {
+        visible: 1,
+        width: 560,
+        height: '56.25%'
+      },
+      scroll: {
+        fx: 'directscroll'
+      }
+    });
+
+    $('#session-thumbs').carouFredSel({
+      responsive: true,
+      circular: true,
+      infinite: false,
+      auto: false,
+      prev: '#prev',
+      next: '#next',
+      items: {
+        visible: {
+          min: 2,
+          max: 5
+        },
+        width: 90,
+        height: '55.5555556%'
+      }
+    });
+
+    $('#session-thumbs div.thumb-toggle').click(function() {
+      console.log($(this));
+      console.log(this.id.split('id-').pop());
+      $('#session-carousel').trigger('slideTo', '#' + this.id.split('id-').pop());
+      $('#session-thumbs a').removeClass('selected');
+      $(this).addClass('selected');
+      return false;
+    });
+  }
 
   /**
    * Enable mobile navigation.

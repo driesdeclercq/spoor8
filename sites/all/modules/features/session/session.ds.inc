@@ -17,13 +17,18 @@ function session_ds_field_settings_info() {
   $ds_fieldsetting->bundle = 'session';
   $ds_fieldsetting->view_mode = 'default';
   $ds_fieldsetting->settings = array(
-    'title' => array(
-      'weight' => '0',
+    'facebook_comments_title' => array(
+      'weight' => '6',
       'label' => 'hidden',
       'format' => 'default',
     ),
-    'node_link' => array(
-      'weight' => '6',
+    'session_pictures' => array(
+      'weight' => '4',
+      'label' => 'hidden',
+      'format' => 'default',
+    ),
+    'title' => array(
+      'weight' => '0',
       'label' => 'hidden',
       'format' => 'default',
     ),
@@ -37,13 +42,8 @@ function session_ds_field_settings_info() {
   $ds_fieldsetting->bundle = 'session';
   $ds_fieldsetting->view_mode = 'full';
   $ds_fieldsetting->settings = array(
-    'dummy_share_session' => array(
-      'weight' => '0',
-      'label' => 'hidden',
-      'format' => 'default',
-    ),
     'facebook_comments_title' => array(
-      'weight' => '4',
+      'weight' => '7',
       'label' => 'hidden',
       'format' => 'default',
       'formatter_settings' => array(
@@ -59,7 +59,7 @@ function session_ds_field_settings_info() {
       ),
     ),
     'session_pictures' => array(
-      'weight' => '3',
+      'weight' => '5',
       'label' => 'hidden',
       'format' => 'default',
     ),
@@ -144,6 +144,23 @@ function session_ds_field_settings_info() {
         ),
       ),
     ),
+    'field_addthis' => array(
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_expert',
+          'lb' => 'Share this session',
+          'lb-el' => 'h2',
+          'lb-cl' => 'block-title',
+          'lb-col' => TRUE,
+          'ow' => TRUE,
+          'ow-el' => 'div',
+          'ow-cl' => 'addthis-share',
+          'ow-def-cl' => FALSE,
+          'ow-at' => '',
+          'ow-def-at' => FALSE,
+        ),
+      ),
+    ),
   );
   $export['node|session|full'] = $ds_fieldsetting;
 
@@ -180,12 +197,12 @@ function session_ds_field_settings_info() {
   $ds_fieldsetting->view_mode = 'teaser';
   $ds_fieldsetting->settings = array(
     'title' => array(
-      'weight' => '2',
+      'weight' => '1',
       'label' => 'hidden',
       'format' => 'default',
     ),
     'node_link' => array(
-      'weight' => '4',
+      'weight' => '3',
       'label' => 'hidden',
       'format' => 'default',
       'formatter_settings' => array(
@@ -306,6 +323,112 @@ function session_ds_layout_settings_info() {
 
   $ds_layout = new stdClass();
   $ds_layout->api_version = 1;
+  $ds_layout->id = 'node|session|default';
+  $ds_layout->entity_type = 'node';
+  $ds_layout->bundle = 'session';
+  $ds_layout->view_mode = 'default';
+  $ds_layout->layout = 'ds_2col_stacked';
+  $ds_layout->settings = array(
+    'regions' => array(
+      'header' => array(
+        0 => 'title',
+        1 => 'field_video',
+        2 => 'field_intro_text',
+        3 => 'field_session_text',
+      ),
+      'left' => array(
+        4 => 'session_pictures',
+      ),
+      'right' => array(
+        5 => 'field_addthis',
+        6 => 'facebook_comments_title',
+        7 => 'facebook_comments',
+      ),
+    ),
+    'fields' => array(
+      'title' => 'header',
+      'field_video' => 'header',
+      'field_intro_text' => 'header',
+      'field_session_text' => 'header',
+      'session_pictures' => 'left',
+      'field_addthis' => 'right',
+      'facebook_comments_title' => 'right',
+      'facebook_comments' => 'right',
+    ),
+    'classes' => array(),
+    'wrappers' => array(
+      'header' => 'div',
+      'left' => 'div',
+      'right' => 'div',
+      'footer' => 'div',
+    ),
+    'layout_wrapper' => 'div',
+    'layout_attributes' => '',
+    'layout_attributes_merge' => 0,
+  );
+  $export['node|session|default'] = $ds_layout;
+
+  $ds_layout = new stdClass();
+  $ds_layout->api_version = 1;
+  $ds_layout->id = 'node|session|full';
+  $ds_layout->entity_type = 'node';
+  $ds_layout->bundle = 'session';
+  $ds_layout->view_mode = 'full';
+  $ds_layout->layout = 'ds_2col_stacked';
+  $ds_layout->settings = array(
+    'regions' => array(
+      'header' => array(
+        0 => 'title',
+        2 => 'field_video',
+        3 => 'field_intro_text',
+        4 => 'field_session_text',
+        5 => 'group_band_links',
+        9 => 'field_band_twitter',
+        10 => 'field_band_soundcloud',
+        11 => 'field_band_facebook',
+        12 => 'field_band_website',
+      ),
+      'right' => array(
+        1 => 'field_addthis',
+        7 => 'facebook_comments_title',
+        8 => 'facebook_comments',
+      ),
+      'left' => array(
+        6 => 'session_pictures',
+      ),
+    ),
+    'fields' => array(
+      'title' => 'header',
+      'field_addthis' => 'right',
+      'field_video' => 'header',
+      'field_intro_text' => 'header',
+      'field_session_text' => 'header',
+      'group_band_links' => 'header',
+      'session_pictures' => 'left',
+      'facebook_comments_title' => 'right',
+      'facebook_comments' => 'right',
+      'field_band_twitter' => 'header',
+      'field_band_soundcloud' => 'header',
+      'field_band_facebook' => 'header',
+      'field_band_website' => 'header',
+    ),
+    'classes' => array(),
+    'wrappers' => array(
+      'header' => 'div',
+      'left' => 'div',
+      'right' => 'div',
+      'footer' => 'div',
+    ),
+    'layout_wrapper' => 'div',
+    'layout_attributes' => '',
+    'layout_attributes_merge' => 0,
+    'hide_page_title' => '1',
+    'page_option_title' => '',
+  );
+  $export['node|session|full'] = $ds_layout;
+
+  $ds_layout = new stdClass();
+  $ds_layout->api_version = 1;
   $ds_layout->id = 'node|session|teaser';
   $ds_layout->entity_type = 'node';
   $ds_layout->bundle = 'session';
@@ -318,14 +441,14 @@ function session_ds_layout_settings_info() {
       ),
       'right' => array(
         1 => 'title',
-        2 => 'body',
+        2 => 'field_intro_text',
         3 => 'node_link',
       ),
     ),
     'fields' => array(
       'field_session_cover_image' => 'left',
       'title' => 'right',
-      'body' => 'right',
+      'field_intro_text' => 'right',
       'node_link' => 'right',
     ),
     'classes' => array(),
@@ -338,39 +461,6 @@ function session_ds_layout_settings_info() {
     'layout_attributes_merge' => 0,
   );
   $export['node|session|teaser'] = $ds_layout;
-
-  $ds_layout = new stdClass();
-  $ds_layout->api_version = 1;
-  $ds_layout->id = 'node|webform|default';
-  $ds_layout->entity_type = 'node';
-  $ds_layout->bundle = 'webform';
-  $ds_layout->view_mode = 'default';
-  $ds_layout->layout = 'ds_2col';
-  $ds_layout->settings = array(
-    'regions' => array(
-      'left' => array(
-        0 => 'body',
-      ),
-      'right' => array(
-        1 => 'title',
-        2 => 'webform',
-      ),
-    ),
-    'fields' => array(
-      'body' => 'left',
-      'title' => 'right',
-      'webform' => 'right',
-    ),
-    'classes' => array(),
-    'wrappers' => array(
-      'left' => 'div',
-      'right' => 'div',
-    ),
-    'layout_wrapper' => 'div',
-    'layout_attributes' => '',
-    'layout_attributes_merge' => 0,
-  );
-  $export['node|webform|default'] = $ds_layout;
 
   return $export;
 }

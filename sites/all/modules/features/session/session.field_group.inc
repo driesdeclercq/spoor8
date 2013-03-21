@@ -21,7 +21,7 @@ function session_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Band social links',
-    'weight' => '5',
+    'weight' => '7',
     'children' => array(
       0 => 'field_band_twitter',
       1 => 'field_band_facebook',
@@ -52,7 +52,7 @@ function session_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Band social links',
-    'weight' => '14',
+    'weight' => '4',
     'children' => array(
       0 => 'field_band_twitter',
       1 => 'field_band_facebook',
@@ -78,15 +78,15 @@ function session_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
-  $field_group->identifier = 'group_session_pictures|node|session|form';
-  $field_group->group_name = 'group_session_pictures';
+  $field_group->identifier = 'group_session_band_pictures|node|session|form';
+  $field_group->group_name = 'group_session_band_pictures';
   $field_group->entity_type = 'node';
   $field_group->bundle = 'session';
   $field_group->mode = 'form';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'Session pictures',
-    'weight' => '4',
+    'label' => 'Band pictures',
+    'weight' => '6',
     'children' => array(
       0 => 'field_session_image',
       1 => 'field_session_cover_image',
@@ -94,16 +94,16 @@ function session_field_group_info() {
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
-      'label' => 'Session pictures',
+      'label' => 'Band pictures',
       'instance_settings' => array(
         'required_fields' => 1,
         'classes' => '',
-        'description' => 'All pictures for this session',
+        'description' => '',
       ),
       'formatter' => 'collapsed',
     ),
   );
-  $export['group_session_pictures|node|session|form'] = $field_group;
+  $export['group_session_band_pictures|node|session|form'] = $field_group;
 
   return $export;
 }

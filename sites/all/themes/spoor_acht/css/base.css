@@ -187,7 +187,6 @@ input[type="submit"] {
   text-decoration: none;
   text-transform: uppercase;
   width: auto;
-  -webkit-appearance: button;
 }
 a.button:hover,b
 utton:hover,
