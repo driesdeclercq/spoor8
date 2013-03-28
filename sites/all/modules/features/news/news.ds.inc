@@ -70,6 +70,11 @@ function news_ds_field_settings_info() {
         ),
       ),
     ),
+    'field_addthis' => array(
+      'formatter_settings' => array(
+        'ft' => array(),
+      ),
+    ),
   );
   $export['node|news_item|full'] = $ds_fieldsetting;
 
@@ -246,19 +251,21 @@ function news_ds_layout_settings_info() {
   $ds_layout->layout = 'ds_2col_stacked';
   $ds_layout->settings = array(
     'regions' => array(
-      'left' => array(
-        0 => 'field_news_image',
-        1 => 'body',
-        2 => 'field_news_link',
-        3 => 'post_date',
-        4 => 'facebook_comments_title',
-        5 => 'facebook_comments',
-      ),
       'right' => array(
-        6 => 'dummy_share_session',
+        0 => 'field_addthis',
+        7 => 'dummy_share_session',
+      ),
+      'left' => array(
+        1 => 'field_news_image',
+        2 => 'body',
+        3 => 'field_news_link',
+        4 => 'post_date',
+        5 => 'facebook_comments_title',
+        6 => 'facebook_comments',
       ),
     ),
     'fields' => array(
+      'field_addthis' => 'right',
       'field_news_image' => 'left',
       'body' => 'left',
       'field_news_link' => 'left',

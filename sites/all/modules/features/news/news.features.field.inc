@@ -90,6 +90,74 @@ function news_field_default_fields() {
     ),
   );
 
+  // Exported field: 'node-news_item-field_addthis'.
+  $fields['node-news_item-field_addthis'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_addthis',
+      'foreign keys' => array(),
+      'indexes' => array(),
+      'locked' => '0',
+      'module' => 'addthis',
+      'settings' => array(
+        'max_length' => 255,
+      ),
+      'translatable' => '0',
+      'type' => 'addthis',
+    ),
+    'field_instance' => array(
+      'bundle' => 'news_item',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'addthis',
+          'settings' => array(),
+          'type' => 'addthis_disabled',
+          'weight' => 4,
+        ),
+        'full' => array(
+          'label' => 'above',
+          'module' => 'addthis_displays',
+          'settings' => array(
+            'buttons_size' => 'addthis_32x32_style',
+            'counter_orientation' => 'horizontal',
+            'extra_css' => '',
+            'share_services' => 'facebook_like,twitter,google_plusone_share,pinterest',
+          ),
+          'type' => 'addthis_basic_toolbox',
+          'weight' => '0',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'ds_extras_field_template' => '',
+      'entity_type' => 'node',
+      'field_name' => 'field_addthis',
+      'label' => 'AddThis',
+      'required' => FALSE,
+      'settings' => array(
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 0,
+        'module' => 'addthis',
+        'settings' => array(),
+        'type' => 'addthis_button_widget',
+        'weight' => '41',
+      ),
+    ),
+  );
+
   // Exported field: 'node-news_item-field_news_category'.
   $fields['node-news_item-field_news_category'] = array(
     'field_config' => array(
@@ -142,13 +210,13 @@ function news_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '0',
+          'weight' => 0,
         ),
       ),
       'ds_extras_field_template' => '',
@@ -367,6 +435,7 @@ function news_field_default_fields() {
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('AddThis');
   t('Body');
   t('Category');
   t('Image');

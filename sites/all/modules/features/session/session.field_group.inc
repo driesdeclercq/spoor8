@@ -21,7 +21,7 @@ function session_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Band social links',
-    'weight' => '7',
+    'weight' => '4',
     'children' => array(
       0 => 'field_band_twitter',
       1 => 'field_band_facebook',
@@ -86,7 +86,7 @@ function session_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Band pictures',
-    'weight' => '6',
+    'weight' => '3',
     'children' => array(
       0 => 'field_session_image',
       1 => 'field_session_cover_image',
@@ -104,6 +104,38 @@ function session_field_group_info() {
     ),
   );
   $export['group_session_band_pictures|node|session|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_session_info|node|session|form';
+  $field_group->group_name = 'group_session_info';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'session';
+  $field_group->mode = 'form';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Session info',
+    'weight' => '2',
+    'children' => array(
+      0 => 'field_video',
+      1 => 'field_share_this_session',
+      2 => 'field_video_vimeo_id',
+      3 => 'field_intro_text',
+      4 => 'field_session_text',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'label' => 'Session info',
+      'instance_settings' => array(
+        'required_fields' => 1,
+        'classes' => '',
+        'description' => '',
+      ),
+      'formatter' => 'collapsed',
+    ),
+  );
+  $export['group_session_info|node|session|form'] = $field_group;
 
   return $export;
 }
