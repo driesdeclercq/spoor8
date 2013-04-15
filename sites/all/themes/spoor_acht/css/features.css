@@ -478,20 +478,15 @@ body.node-type-session #content-wrapper {
   background-position: 0 0;
 }
 
-/* News Detail*
-  562         |  63       | 399         = 1024
-  video       | marge     | body
-  54.8828125	| 6.1523437	| 38.9648437	= 99.9999999%
-  */
+  /* News Detail */
 
   .node-news-item.view-mode-full .group-left {
-    width: 60.546875%;
-    margin-right: 7.91015625%;
+    width: 100%;
     margin-bottom: 50px;
   }
   .node-news-item.view-mode-full .group-right {
-    float: right;
-    width: 31.54296875%;
+    float: none;
+    width: 100%;
   }
   .node-type-news-item .field-name-field-news-image {
     margin-bottom: 10px;
@@ -523,7 +518,7 @@ body.node-type-session #content-wrapper {
   /* News Page*/
   .page-news #block-system-main {
     float: left;
-    margin-bottom: 50px;
+    margin-bottom: 80px;
   }
   .page-news #block-views-news-block-1 {
     float: right;
@@ -565,7 +560,7 @@ body.node-type-session #content-wrapper {
   }
   .page-news fieldset.group-news .fieldset-wrapper {
     margin: 0;
-    padding: 3.1% 0 0 0;
+    padding: 19px 0 0 0;
     background: url('/sites/all/themes/spoor_acht/images/bg_news_item_header.png') no-repeat;
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
@@ -576,23 +571,23 @@ body.node-type-session #content-wrapper {
   }
   .page-news fieldset.group-news .field-name-field-news-link {
     display: inline-block;
-    width: 56%;
+    width: 48%;
     margin: 0;
   }
-  .page-news fieldset.group-news .field-name-dummy-share-session {
+  .page-news fieldset.group-news .addthis-share {
     display: inline-block;
-    width: 44%;
+    width: 265px;
     margin: 0 0 38px 0;
   }
-  .page-news fieldset.group-news .field-name-dummy-share-session h2.block-title{
+  .page-news fieldset.group-news .addthis-share h2.block-title{
     display: inline-block;
     font-size: 12px;
     width: 112px;
     margin: 0;
   }
-  .page-news fieldset.group-news .field-name-dummy-share-session p{
+  .page-news fieldset.group-news .addthis_toolbox{
     display: inline-block;
-    width: 43%;
+    width: 145px;
     margin: 0;
   }
   .page-news .views-field-title a, .page-news .views-field-title a:hover {

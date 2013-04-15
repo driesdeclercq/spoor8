@@ -128,16 +128,22 @@ function news_field_default_fields() {
             'buttons_size' => 'addthis_32x32_style',
             'counter_orientation' => 'horizontal',
             'extra_css' => '',
-            'share_services' => 'facebook_like,twitter,google_plusone_share,pinterest',
+            'share_services' => 'facebook,twitter,pinterest,google_plusone_share',
           ),
           'type' => 'addthis_basic_toolbox',
           'weight' => '0',
         ),
         'teaser' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
+          'label' => 'inline',
+          'module' => 'addthis_displays',
+          'settings' => array(
+            'buttons_size' => 'addthis_32x32_style',
+            'counter_orientation' => 'horizontal',
+            'extra_css' => '',
+            'share_services' => 'facebook,twitter,pinterest,google_plusone_share',
+          ),
+          'type' => 'addthis_basic_toolbox',
+          'weight' => '8',
         ),
       ),
       'ds_extras_field_template' => '',
@@ -216,7 +222,7 @@ function news_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
       ),
       'ds_extras_field_template' => '',
@@ -367,12 +373,7 @@ function news_field_default_fields() {
     ),
     'field_instance' => array(
       'bundle' => 'news_item',
-      'default_value' => array(
-        0 => array(
-          'title' => 'Read more',
-          'url' => 'node/[node:nid]',
-        ),
-      ),
+      'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
       'display' => array(
@@ -392,9 +393,8 @@ function news_field_default_fields() {
         ),
         'teaser' => array(
           'label' => 'hidden',
-          'module' => 'link',
           'settings' => array(),
-          'type' => 'link_default',
+          'type' => 'hidden',
           'weight' => '6',
         ),
       ),
@@ -408,7 +408,7 @@ function news_field_default_fields() {
           'class' => '',
           'configurable_title' => 0,
           'rel' => '',
-          'target' => 'default',
+          'target' => '_top',
           'title' => '',
         ),
         'display' => array(
@@ -426,9 +426,110 @@ function news_field_default_fields() {
       'widget' => array(
         'active' => 0,
         'module' => 'link',
-        'settings' => array(),
+        'settings' => array(
+          'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        ),
         'type' => 'link_field',
         'weight' => '6',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-news_item-field_read_more'.
+  $fields['node-news_item-field_read_more'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_read_more',
+      'foreign keys' => array(),
+      'indexes' => array(),
+      'locked' => '0',
+      'module' => 'link',
+      'settings' => array(
+        'attributes' => array(
+          'class' => '',
+          'rel' => '',
+          'target' => 'default',
+        ),
+        'display' => array(
+          'url_cutoff' => 80,
+        ),
+        'enable_tokens' => 1,
+        'title' => 'optional',
+        'title_maxlength' => 128,
+        'title_value' => '',
+        'url' => 0,
+      ),
+      'translatable' => '0',
+      'type' => 'link_field',
+    ),
+    'field_instance' => array(
+      'bundle' => 'news_item',
+      'default_value' => array(
+        0 => array(
+          'title' => 'Read more',
+          'url' => 'node/[node:nid]',
+        ),
+      ),
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'link',
+          'settings' => array(),
+          'type' => 'link_default',
+          'weight' => 5,
+        ),
+        'full' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'teaser' => array(
+          'label' => 'hidden',
+          'module' => 'link',
+          'settings' => array(),
+          'type' => 'link_default',
+          'weight' => '6',
+        ),
+      ),
+      'ds_extras_field_template' => '',
+      'entity_type' => 'node',
+      'field_name' => 'field_read_more',
+      'label' => 'Read More',
+      'required' => 0,
+      'settings' => array(
+        'attributes' => array(
+          'class' => '',
+          'configurable_title' => 0,
+          'rel' => '',
+          'target' => 'default',
+          'title' => '',
+        ),
+        'display' => array(
+          'url_cutoff' => '80',
+        ),
+        'enable_tokens' => 1,
+        'rel_remove' => 'default',
+        'title' => 'optional',
+        'title_maxlength' => '128',
+        'title_value' => '',
+        'url' => 0,
+        'user_register_form' => FALSE,
+        'validate_url' => 1,
+      ),
+      'widget' => array(
+        'active' => 0,
+        'module' => 'link',
+        'settings' => array(
+          'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        ),
+        'type' => 'link_field',
+        'weight' => '42',
       ),
     ),
   );
@@ -440,6 +541,7 @@ function news_field_default_fields() {
   t('Category');
   t('Image');
   t('Link');
+  t('Read More');
   t('Upload an image to show with your news item.');
 
   return $fields;

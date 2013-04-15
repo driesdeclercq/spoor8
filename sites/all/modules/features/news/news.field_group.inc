@@ -24,8 +24,8 @@ function news_field_group_info() {
     'weight' => '5',
     'children' => array(
       0 => 'body',
-      1 => 'field_news_link',
-      2 => 'dummy_share_session',
+      1 => 'field_addthis',
+      2 => 'field_read_more',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -57,8 +57,7 @@ function news_field_group_info() {
     'weight' => '2',
     'children' => array(
       0 => 'field_news_image',
-      1 => 'image_background',
-      2 => 'group_news_body',
+      1 => 'group_news_body',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(

@@ -82,7 +82,7 @@ function news_views_default_views() {
       'secondary_label' => 'Advanced options',
     ),
     'field_news_category_tid' => array(
-      'bef_format' => 'bef',
+      'bef_format' => 'bef_links',
       'more_options' => array(
         'bef_select_all_none' => 1,
         'bef_collapsible' => 0,
