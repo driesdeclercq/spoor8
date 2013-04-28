@@ -442,6 +442,9 @@ body.node-type-session #content-wrapper {
   margin-bottom: 30px;
   text-align: center;
 }
+.view-sessions.mobile-sessions-home .more-link {
+  margin-bottom: 0;
+}
 .view-sessions .more-link a {
   display: inline;
   padding: 6px 20px;
@@ -922,11 +925,17 @@ a.big-button:hover, .big-button a:hover {
         color-stop(0.55, rgb(105,107,65)),
         color-stop(0.78, rgb(118,118,66))
         );
-}
 
+}
+.block-mobile-sessions {
+  background: url('/sites/all/themes/spoor_acht/images/bg_news_group_news_body.png') left top repeat;
+
+  padding-top: 50px;
+  margin-bottom: 13px;
+}
 .view-sessions.mobile-sessions-home {
   max-width: 252px;
-  margin: 50px auto 0;
+  margin: 0 auto;
 }
 .view-sessions.mobile-sessions-home .session.views-row-odd,
 .view-sessions.mobile-sessions-home .session {
