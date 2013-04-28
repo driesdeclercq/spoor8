@@ -455,20 +455,22 @@
   /*Latest news block (on the home page)*/
 .pane-views-news-block-2 {
     float: left;
+    padding-left: 4%;
     padding-right: 4%;
-    width: 46%;
+    width: 42%;
 }
 /*Latest tweets block (on the home page)*/
 .pane-block-8 {
     float: right;
     padding-right: 2%;
-    width: 25%;
+    width: 23%;
 }
 /*Newsletter block (on the home page)*/
 .pane-newsletter-newsletter-subscribe {
     float: right;
     padding-left: 2%;
-    width: 21%;
+    padding-right: 4%;
+    width: 19%;
 }
 
   /**

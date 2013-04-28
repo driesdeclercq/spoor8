@@ -712,8 +712,37 @@ h2.pane-title {
 .pane-block-8 {
     width: 100%;
 }
+.twtr-ft div a {
+    display: none;
+}
+.twtr-ft span a {
+    display: block;
+    float: left;
+}
+.twtr-doc .twtr-ft span {
+    float: left;
+}
+.twtr-ft span a.twtr-join-conv {
+    background-color: #797b49;
+    border: 0;
+    box-shadow: none;
+    border-radius: 3px;
+    color: #efefef;
+    cursor: pointer;
+    font-family: Arvo, serif;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: auto;
+    padding: 5px 10px;
+}
+.twtr-ft span a.twtr-join-conv:hover {
+    background: #65663f;
+}
 /*Newsletter block (on the home page)*/
 .pane-newsletter-newsletter-subscribe {
+    width: 100%;
+}
+.pane-newsletter-newsletter-subscribe input[type="text"] {
     width: 100%;
 }
 
