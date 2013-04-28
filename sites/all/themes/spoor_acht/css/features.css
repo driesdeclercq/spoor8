@@ -640,16 +640,18 @@ body.node-type-session #content-wrapper {
     margin: 2.1em 0 1.1em 0;
     width: 100%;
 }
-
-/*Latest news block (on the home page)*/
-.pane-views-news-block-2 {
-    width: 100%;
-}
-.pane-views-news-block-2 h2 {
+/* ==========================================================================
+   Home page blocks
+   ========================================================================== */
+h2.pane-title {
     margin: 1.1em 0 1.1em;
     border-bottom: 1px solid #ccc;
     padding-bottom: 0.9em;
     font-size: 18px;
+}
+/*Latest news block (on the home page)*/
+.pane-views-news-block-2 {
+    width: 100%;
 }
 .pane-views-news-block-2 .views-field-created {
     color: #8D8D8D;
@@ -702,6 +704,14 @@ body.node-type-session #content-wrapper {
 }
 .pane-views-news-block-2 .more-link a:hover {
     background: #65663f;
+}
+/*Latest tweets block (on the home page)*/
+.pane-block-8 {
+    width: 100%;
+}
+/*Newsletter block (on the home page)*/
+.pane-newsletter-newsletter-subscribe {
+    width: 100%;
 }
 
 /* ==========================================================================
