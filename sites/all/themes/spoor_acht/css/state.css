@@ -449,6 +449,10 @@
     width: 31.54296875%;
     margin-bottom: 2.1em;
   }
+  /*Latest news block (on the home page)*/
+.pane-views-news-block-2 {
+    width: 50%;
+}
 
   /**
    * Footer
