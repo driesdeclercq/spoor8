@@ -3,7 +3,6 @@
  * Javascript behaviors for the Book module.
  */
 
-
 (function ($) {
 
 Drupal.behaviors.bookFieldsetSummaries = {
@@ -11,6 +10,7 @@ Drupal.behaviors.bookFieldsetSummaries = {
     $('fieldset.book-outline-form', context).drupalSetSummary(function (context) {
       var $select = $('.form-item-book-bid select');
       var val = $select.val();
+
       if (val === '0') {
         return Drupal.t('Not in book');
       }
