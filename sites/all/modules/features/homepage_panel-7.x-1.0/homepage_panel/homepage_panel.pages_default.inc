@@ -58,16 +58,13 @@ function homepage_panel_default_page_manager_pages() {
     $pane = new stdClass();
     $pane->pid = 'new-1';
     $pane->panel = 'center';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
+    $pane->type = 'block';
+    $pane->subtype = 'views-news-block_2';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'admin_title' => '',
-      'title' => 'Dummy home block',
-      'body' => 'hahahahahah',
-      'format' => 'full_html',
-      'substitute' => TRUE,
+      'override_title' => 0,
+      'override_title_text' => 'Newsletter',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -83,12 +80,12 @@ function homepage_panel_default_page_manager_pages() {
     $pane->pid = 'new-2';
     $pane->panel = 'center';
     $pane->type = 'block';
-    $pane->subtype = 'views-news-block_2';
+    $pane->subtype = 'newsletter-newsletter_subscribe';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'override_title' => 0,
-      'override_title_text' => '',
+      'override_title' => 1,
+      'override_title_text' => 'Newsletter',
     );
     $pane->cache = array();
     $pane->style = array(
