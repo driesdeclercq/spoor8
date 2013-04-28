@@ -998,3 +998,14 @@ a.big-button:hover, .big-button a:hover {
   text-align: center;
   text-decoration: none;
 }
+
+.pane-content .twtr-widget {
+color: #424242;
+font-family: 'Arvo', serif !important;
+font-size: 12px;
+line-height: 1.3846em;
+}
+
+.pane-content .twtr-ft span a.twtr-join-conv {
+  text-decoration: none !important;
+}
