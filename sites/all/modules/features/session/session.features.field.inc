@@ -51,13 +51,13 @@ function session_field_default_fields() {
             'share_services' => 'facebook,twitter,pinterest,google_plusone_share',
           ),
           'type' => 'addthis_basic_toolbox',
-          'weight' => '0',
+          'weight' => '6',
         ),
         'slideshow' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -531,7 +531,7 @@ function session_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
         'teaser' => array(
           'label' => 'hidden',
@@ -599,7 +599,8 @@ function session_field_default_fields() {
     'field_instance' => array(
       'bundle' => 'session',
       'deleted' => '0',
-      'description' => 'The large image for the homepage sldieshow',
+      'description' => 'The image for the homepage slider thumbnails.
+Also used for session pages overview.',
       'display' => array(
         'default' => array(
           'label' => 'above',
@@ -611,7 +612,7 @@ function session_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '24',
+          'weight' => '25',
         ),
         'slideshow' => array(
           'label' => 'above',
@@ -636,13 +637,13 @@ function session_field_default_fields() {
       'label' => 'Cover image',
       'required' => 1,
       'settings' => array(
-        'alt_field' => 0,
+        'alt_field' => 1,
         'default_image' => 0,
         'file_directory' => 'sessions/[current-page:title]/cover',
         'file_extensions' => 'png gif jpg jpeg',
-        'max_filesize' => '',
+        'max_filesize' => '2MB',
         'max_resolution' => '',
-        'min_resolution' => '',
+        'min_resolution' => '279x163',
         'title_field' => 0,
         'user_register_form' => FALSE,
       ),
@@ -650,6 +651,7 @@ function session_field_default_fields() {
         'active' => 1,
         'module' => 'image',
         'settings' => array(
+          'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
           'preview_image_style' => 'thumbnail',
           'progress_indicator' => 'throbber',
         ),
@@ -704,7 +706,7 @@ function session_field_default_fields() {
           'label' => 'hidden',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '23',
+          'weight' => '24',
         ),
         'slideshow' => array(
           'label' => 'hidden',
@@ -781,7 +783,7 @@ function session_field_default_fields() {
     'field_instance' => array(
       'bundle' => 'session',
       'deleted' => '0',
-      'description' => '',
+      'description' => 'The large image for the homepage slideshow.',
       'display' => array(
         'default' => array(
           'label' => 'above',
@@ -793,7 +795,7 @@ function session_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '18',
+          'weight' => '22',
         ),
         'slideshow' => array(
           'label' => 'above',
@@ -816,15 +818,15 @@ function session_field_default_fields() {
       'entity_type' => 'node',
       'field_name' => 'field_session_slideshow_image',
       'label' => 'Slideshow image',
-      'required' => 0,
+      'required' => 1,
       'settings' => array(
-        'alt_field' => 0,
+        'alt_field' => 1,
         'default_image' => 0,
         'file_directory' => 'sessions/[current-page:title]/slideshow',
         'file_extensions' => 'png gif jpg jpeg',
-        'max_filesize' => '',
+        'max_filesize' => '3MB',
         'max_resolution' => '',
-        'min_resolution' => '',
+        'min_resolution' => '1800x400',
         'title_field' => 0,
         'user_register_form' => FALSE,
       ),
@@ -832,6 +834,7 @@ function session_field_default_fields() {
         'active' => 1,
         'module' => 'image',
         'settings' => array(
+          'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
           'preview_image_style' => 'thumbnail',
           'progress_indicator' => 'throbber',
         ),
@@ -892,7 +895,7 @@ function session_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1060,13 +1063,13 @@ function session_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '19',
+          'weight' => '23',
         ),
         'slideshow' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1111,7 +1114,9 @@ function session_field_default_fields() {
   t('Session text');
   t('Slideshow image');
   t('Some more text about this session. Shown on session detail.');
-  t('The large image for the homepage sldieshow');
+  t('The image for the homepage slider thumbnails.
+Also used for session pages overview.');
+  t('The large image for the homepage slideshow.');
   t('The session images for the session detail page');
   t('Video');
   t('Vimeo ID');

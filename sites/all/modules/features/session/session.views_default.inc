@@ -56,7 +56,6 @@ function session_views_default_views() {
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  $handler->display->display_options['sorts']['created']['exposed'] = TRUE;
   $handler->display->display_options['sorts']['created']['expose']['label'] = 'Post date';
   $handler->display->display_options['sorts']['created']['granularity'] = 'minute';
   /* Sort criterion: Content: Title */
@@ -147,6 +146,64 @@ function session_views_default_views() {
   $handler->display->display_options['filters']['promote']['table'] = 'node';
   $handler->display->display_options['filters']['promote']['field'] = 'promote';
   $handler->display->display_options['filters']['promote']['value'] = '1';
+
+  /* Display: Homepage mobile */
+  $handler = $view->new_display('block', 'Homepage mobile', 'view_mobile_sessions_home');
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'mobile-sessions-home';
+  $handler->display->display_options['display_description'] = 'The three top session for the mobile homepage.';
+  $handler->display->display_options['defaults']['use_ajax'] = FALSE;
+  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '3';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['row_class'] = 'session';
+  $handler->display->display_options['style_options']['default_row_class'] = FALSE;
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['hide_empty'] = TRUE;
+  $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Cotnent: Slideshow image (overlay) */
+  $handler->display->display_options['fields']['field_session_slideshow_image_1']['id'] = 'field_session_slideshow_image_1';
+  $handler->display->display_options['fields']['field_session_slideshow_image_1']['table'] = 'field_data_field_session_slideshow_image';
+  $handler->display->display_options['fields']['field_session_slideshow_image_1']['field'] = 'field_session_slideshow_image';
+  $handler->display->display_options['fields']['field_session_slideshow_image_1']['ui_name'] = 'Cotnent: Slideshow image (overlay)';
+  $handler->display->display_options['fields']['field_session_slideshow_image_1']['label'] = '';
+  $handler->display->display_options['fields']['field_session_slideshow_image_1']['alter']['text'] = '[field_session_slideshow_image_1]';
+  $handler->display->display_options['fields']['field_session_slideshow_image_1']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_session_slideshow_image_1']['element_type'] = 'div';
+  $handler->display->display_options['fields']['field_session_slideshow_image_1']['element_class'] = 'session-image-wrapper';
+  $handler->display->display_options['fields']['field_session_slideshow_image_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_session_slideshow_image_1']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_session_slideshow_image_1']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_session_slideshow_image_1']['settings'] = array(
+    'image_style' => 'home_session_overlay',
+    'image_link' => 'content',
+  );
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_type'] = 'h2';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Content: Post date */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'node';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  $handler->display->display_options['sorts']['created']['expose']['label'] = 'Post date';
+  $handler->display->display_options['sorts']['created']['granularity'] = 'minute';
   $export['sessions'] = $view;
 
   $view = new view();

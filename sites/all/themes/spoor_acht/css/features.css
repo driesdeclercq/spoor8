@@ -329,7 +329,6 @@ body.node-type-session #content-wrapper {
     position: relative;
     padding-bottom: 56.25%; /* 16:9 */
     height: 0;
-
 }
 .node-session.view-mode-full .field-session-video .video-wrapper iframe {
     position: absolute;
@@ -388,15 +387,16 @@ body.node-type-session #content-wrapper {
 .view-sessions .session .group-right >  .field-name-field-intro-text {
     margin-bottom: 36px;
 }
-.view-sessions .session .group-left .session-image-wrapper {
-    background-color: #f0f0f0;
-    max-width: 279px;
-    box-shadow: 2px 2px 2px rgba(0,0,0,0.3), -1px -1px 2px rgba(0,0,0,0.2);
-    border-radius: 6px;
-    padding: 10px;
+
+.view-sessions .session .session-image-wrapper {
+  background-color: #f0f0f0;
+  max-width: 279px;
+  box-shadow: 2px 2px 2px rgba(0,0,0,0.3), -1px -1px 2px rgba(0,0,0,0.2);
+  border-radius: 6px;
+  padding: 10px;
 }
-.view-sessions .session .group-left .session-image-wrapper img {
-    display: block;
+.view-sessions .session .session-image-wrapper img {
+  display: block;
 }
 
 .view-sessions .session .group-right h2 {
@@ -521,7 +521,7 @@ body.node-type-session #content-wrapper {
 }
 .page-news #block-views-news-block-1, .page-news #block-views-exp-news-page {
     width: 100%;
-}  
+}
 .page-news .views-row {
     max-width: 620px;
 }
@@ -587,7 +587,7 @@ body.node-type-session #content-wrapper {
     width: 145px;
     margin: 0;
 }
-.page-news .views-field-title a, 
+.page-news .views-field-title a,
 .page-news .views-field-title a:hover,
 .page-news .views-exposed-form a,
 .page-news .views-exposed-form a:hover {
@@ -861,4 +861,31 @@ a.big-button:hover, .big-button a:hover {
         color-stop(0.55, rgb(105,107,65)),
         color-stop(0.78, rgb(118,118,66))
         );
+}
+
+.view-sessions.mobile-sessions-home {
+  max-width: 252px;
+  margin: 50px auto 0;
+}
+.view-sessions.mobile-sessions-home .session.views-row-odd,
+.view-sessions.mobile-sessions-home .session {
+  float: none;
+  margin-bottom: 30px;
+  width: 100%;
+}
+.view-sessions.mobile-sessions-home .home-session-mobile-overlay a {
+  height: 147px;
+  display: block;
+  overflow: hidden;
+}
+.view-sessions.mobile-sessions-home h2 {
+  font-size: 17px;
+  line-height: 1.2em;
+  margin: 0.4em 0 0.5em;
+  text-align: center;
+}
+.view-sessions.mobile-sessions-home h2 a {
+  color: #424242;
+  text-align: center;
+  text-decoration: none;
 }

@@ -35,6 +35,67 @@ function session_views_api() {
 function session_image_default_styles() {
   $styles = array();
 
+  // Exported image style: home_session_overlay.
+  $styles['home_session_overlay'] = array(
+    'name' => 'home_session_overlay',
+    'effects' => array(
+      7 => array(
+        'label' => 'Scale and crop',
+        'help' => 'Scale and crop will maintain the aspect-ratio of the original image, then crop the larger dimension. This is most useful for creating perfectly square thumbnails without stretching the image.',
+        'effect callback' => 'image_scale_and_crop_effect',
+        'dimensions callback' => 'image_resize_dimensions',
+        'form callback' => 'image_resize_form',
+        'summary theme' => 'image_resize_summary',
+        'module' => 'image',
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => '252',
+          'height' => '147',
+        ),
+        'weight' => '1',
+      ),
+      8 => array(
+        'label' => 'Overlay (watermark)',
+        'help' => 'Choose the file image you wish to use as an overlay, and position it in a layer on top of the canvas.',
+        'effect callback' => 'canvasactions_file2canvas_image',
+        'dimensions passthrough' => TRUE,
+        'form callback' => 'canvasactions_file2canvas_form',
+        'summary theme' => 'canvasactions_file2canvas_summary',
+        'module' => 'imagecache_canvasactions',
+        'name' => 'canvasactions_file2canvas',
+        'data' => array(
+          'xpos' => 0,
+          'ypos' => 0,
+          'alpha' => '100',
+          'path' => 'theme://spoor_acht/images/session_overlay_252x147.png',
+        ),
+        'weight' => '2',
+      ),
+    ),
+  );
+
+  // Exported image style: mobile_home_session.
+  $styles['mobile_home_session'] = array(
+    'name' => 'mobile_home_session',
+    'effects' => array(
+      6 => array(
+        'label' => 'Scale and crop',
+        'help' => 'Scale and crop will maintain the aspect-ratio of the original image, then crop the larger dimension. This is most useful for creating perfectly square thumbnails without stretching the image.',
+        'effect callback' => 'image_scale_and_crop_effect',
+        'dimensions callback' => 'image_resize_dimensions',
+        'form callback' => 'image_resize_form',
+        'summary theme' => 'image_resize_summary',
+        'module' => 'image',
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => '252',
+          'height' => '147',
+        ),
+        'weight' => '1',
+      ),
+    ),
+  );
+
   // Exported image style: session_detail.
   $styles['session_detail'] = array(
     'name' => 'session_detail',

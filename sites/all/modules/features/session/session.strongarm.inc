@@ -67,7 +67,7 @@ function session_strongarm() {
             'visible' => FALSE,
           ),
           'full' => array(
-            'weight' => '25',
+            'weight' => '26',
             'visible' => FALSE,
           ),
           'slideshow' => array(
@@ -78,11 +78,11 @@ function session_strongarm() {
         'facebook_comments' => array(
           'default' => array(
             'weight' => '7',
-            'visible' => TRUE,
+            'visible' => FALSE,
           ),
           'full' => array(
-            'weight' => '8',
-            'visible' => TRUE,
+            'weight' => '10',
+            'visible' => FALSE,
           ),
           'teaser' => array(
             'weight' => '28',

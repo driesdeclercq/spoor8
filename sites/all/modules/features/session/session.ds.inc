@@ -17,11 +17,6 @@ function session_ds_field_settings_info() {
   $ds_fieldsetting->bundle = 'session';
   $ds_fieldsetting->view_mode = 'default';
   $ds_fieldsetting->settings = array(
-    'facebook_comments_title' => array(
-      'weight' => '6',
-      'label' => 'hidden',
-      'format' => 'default',
-    ),
     'session_pictures' => array(
       'weight' => '4',
       'label' => 'hidden',
@@ -42,22 +37,6 @@ function session_ds_field_settings_info() {
   $ds_fieldsetting->bundle = 'session';
   $ds_fieldsetting->view_mode = 'full';
   $ds_fieldsetting->settings = array(
-    'facebook_comments_title' => array(
-      'weight' => '7',
-      'label' => 'hidden',
-      'format' => 'default',
-      'formatter_settings' => array(
-        'ft' => array(
-          'func' => 'theme_ds_field_expert',
-          'fi' => TRUE,
-          'fi-el' => 'h2',
-          'fi-cl' => 'block-title',
-          'fi-at' => '',
-          'fi-def-at' => FALSE,
-          'fi-odd-even' => FALSE,
-        ),
-      ),
-    ),
     'session_pictures' => array(
       'weight' => '5',
       'label' => 'hidden',
@@ -175,16 +154,6 @@ function session_ds_field_settings_info() {
       'weight' => '1',
       'label' => 'hidden',
       'format' => 'default',
-    ),
-    'node_link' => array(
-      'weight' => '2',
-      'label' => 'hidden',
-      'format' => 'default',
-    ),
-    'field_session_slideshow_image' => array(
-      'formatter_settings' => array(
-        'ft' => array(),
-      ),
     ),
   );
   $export['node|session|slideshow'] = $ds_fieldsetting;
@@ -341,8 +310,6 @@ function session_ds_layout_settings_info() {
       ),
       'right' => array(
         5 => 'field_addthis',
-        6 => 'facebook_comments_title',
-        7 => 'facebook_comments',
       ),
     ),
     'fields' => array(
@@ -352,8 +319,6 @@ function session_ds_layout_settings_info() {
       'field_session_text' => 'header',
       'session_pictures' => 'left',
       'field_addthis' => 'right',
-      'facebook_comments_title' => 'right',
-      'facebook_comments' => 'right',
     ),
     'classes' => array(),
     'wrappers' => array(
@@ -379,34 +344,30 @@ function session_ds_layout_settings_info() {
     'regions' => array(
       'header' => array(
         0 => 'title',
-        2 => 'field_video',
-        3 => 'field_intro_text',
-        4 => 'field_session_text',
-        5 => 'group_band_links',
-        9 => 'field_band_twitter',
-        10 => 'field_band_soundcloud',
-        11 => 'field_band_facebook',
-        12 => 'field_band_website',
-      ),
-      'right' => array(
-        1 => 'field_addthis',
-        7 => 'facebook_comments_title',
-        8 => 'facebook_comments',
+        1 => 'field_video',
+        2 => 'field_intro_text',
+        3 => 'field_session_text',
+        4 => 'group_band_links',
+        7 => 'field_band_twitter',
+        8 => 'field_band_soundcloud',
+        9 => 'field_band_facebook',
+        10 => 'field_band_website',
       ),
       'left' => array(
-        6 => 'session_pictures',
+        5 => 'session_pictures',
+      ),
+      'right' => array(
+        6 => 'field_addthis',
       ),
     ),
     'fields' => array(
       'title' => 'header',
-      'field_addthis' => 'right',
       'field_video' => 'header',
       'field_intro_text' => 'header',
       'field_session_text' => 'header',
       'group_band_links' => 'header',
       'session_pictures' => 'left',
-      'facebook_comments_title' => 'right',
-      'facebook_comments' => 'right',
+      'field_addthis' => 'right',
       'field_band_twitter' => 'header',
       'field_band_soundcloud' => 'header',
       'field_band_facebook' => 'header',
