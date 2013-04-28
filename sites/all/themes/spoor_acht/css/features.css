@@ -408,11 +408,12 @@ body.node-type-session #content-wrapper {
     color: #767676;
     margin: 0 0 3em;
 }
-.view-sessions .session .group-right .field-name-node-link {
+.view-sessions .session .field-name-node-link {
     position: absolute;
     bottom: 0;
 }
-.view-sessions .session .group-right .field-name-node-link a {
+.view-sessions .more-link a,
+.view-sessions .session .field-name-node-link a {
     box-shadow: 2px 2px 2px rgba(0,0,0,0.4), -1px -1px 2px rgba(0,0,0,0.4);
     padding: 4px 10px;
     color: #f0f0f0;
@@ -437,6 +438,15 @@ body.node-type-session #content-wrapper {
         color-stop(0.67, rgb(124,126,74))
         );
 }
+.view-sessions .more-link {
+  margin-bottom: 30px;
+  text-align: center;
+}
+.view-sessions .more-link a {
+  display: inline;
+  padding: 6px 20px;
+}
+.view-sessions .more-link a:hover,
 .view-sessions .session .group-right .field-name-node-link a:hover {
     background-image: linear-gradient(bottom, rgb(90,91,60) 9%, rgb(105,107,65) 55%, rgb(118,118,66) 78%);
     background-image: -o-linear-gradient(bottom, rgb(90,91,60) 9%, rgb(105,107,65) 55%, rgb(118,118,66) 78%);
@@ -904,7 +914,6 @@ a.big-button:hover, .big-button a:hover {
     background-image: -moz-linear-gradient(bottom, rgb(90,91,60) 9%, rgb(105,107,65) 55%, rgb(118,118,66) 78%);
     background-image: -webkit-linear-gradient(bottom, rgb(90,91,60) 9%, rgb(105,107,65) 55%, rgb(118,118,66) 78%);
     background-image: -ms-linear-gradient(bottom, rgb(90,91,60) 9%, rgb(105,107,65) 55%, rgb(118,118,66) 78%);
-
     background-image: -webkit-gradient(
         linear,
         left bottom,
