@@ -96,6 +96,7 @@ a:focus {
  */
 img {
   border: 0;
+  display: block;
   height: auto !important;
   max-width: 100% !important;
   width: auto !important;
