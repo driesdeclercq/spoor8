@@ -646,17 +646,17 @@ body.node-type-session #content-wrapper {
 /* ==========================================================================
    Home page blocks
    ========================================================================== */
-h2.pane-title {
+.front h2.pane-title {
     margin: 1.1em 0 1.1em;
     border-bottom: 1px solid #ccc;
     padding-bottom: 0.9em;
     font-size: 18px;
 }
 /*Latest news block (on the home page)*/
-.pane-views-news-block-2 {
+.front .pane-views-news-block-2 {
     width: 100%;
 }
-.pane-views-news-block-2 .views-field-created {
+.front .pane-views-news-block-2 .views-field-created {
     color: #8D8D8D;
     display: inline-block;
     font-family: 'Francois One', sans-serif;
@@ -665,7 +665,7 @@ h2.pane-title {
     font-size: 14px;
     padding-right: 3px;
 }
-.pane-views-news-block-2 .views-field-title {
+.front .pane-views-news-block-2 .views-field-title {
     display: inline-block;
     font-family: 'Francois One', sans-serif;
     font-weight: normal;
@@ -674,13 +674,13 @@ h2.pane-title {
     margin: 0 0 5px 0;
 }
 
-.pane-views-news-block-2 p {
+.front .pane-views-news-block-2 p {
     margin: 0;
 }
-.pane-views-news-block-2 .views-field-body {
+.front .pane-views-news-block-2 .views-field-body {
     text-transform: none;
 }
-.pane-views-news-block-2 .views-field-field-news-link a,
+.front .pane-views-news-block-2 .views-field-field-news-link a,
 .pane-views-news-block-2 .views-field-field-news-link a:hover {
     font-size: 12px;
     font-style: normal;
@@ -688,11 +688,11 @@ h2.pane-title {
     line-height: 2.3846em;
     text-decoration: none;
 }
-.pane-views-news-block-2 .more-link{
+.front .pane-views-news-block-2 .more-link{
     text-align: left;
     padding-top: 10px;
 }
-.pane-views-news-block-2 .more-link a {
+.front .pane-views-news-block-2 .more-link a {
     background-color: #797b49;
     border: 0;
     box-shadow: none;
@@ -705,24 +705,37 @@ h2.pane-title {
     width: auto;
     padding: 5px 10px;
 }
-.pane-views-news-block-2 .more-link a:hover {
+.front .pane-views-news-block-2 .more-link a:hover {
     background: #65663f;
 }
 /*Latest tweets block (on the home page)*/
-.pane-block-8 {
+.front.pane-block-8 {
     width: 100%;
 }
-.twtr-ft div a {
+.front .twtr-doc {
+    width: 100%!important;
+}
+.front .twtr-ft div {
+padding-left: 0;
+}
+.front .twtr-widget .twtr-tweet-wrap {
+    padding: 6px 0;
+}
+.front .twtr-hd {
+    padding-left: 0;
+    padding-top: 0;
+}
+.front .twtr-ft div a {
     display: none;
 }
-.twtr-ft span a {
+.front .twtr-ft span a {
     display: block;
     float: left;
 }
-.twtr-doc .twtr-ft span {
+.front .twtr-doc .twtr-ft span {
     float: left;
 }
-.twtr-ft span a.twtr-join-conv {
+.front .twtr-ft span a.twtr-join-conv {
     background-color: #797b49;
     border: 0;
     box-shadow: none;
@@ -735,7 +748,7 @@ h2.pane-title {
     width: auto;
     padding: 5px 10px;
 }
-.twtr-ft span a.twtr-join-conv:hover {
+.front .twtr-ft span a.twtr-join-conv:hover {
     background: #65663f;
 }
 /*Newsletter block (on the home page)*/

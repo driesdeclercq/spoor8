@@ -453,20 +453,20 @@
    Home page blocks
    ========================================================================== */
   /*Latest news block (on the home page)*/
-.pane-views-news-block-2 {
+.front .pane-views-news-block-2 {
     float: left;
     padding-left: 4%;
     padding-right: 4%;
     width: 42%;
 }
 /*Latest tweets block (on the home page)*/
-.pane-block-8 {
+.front .pane-block-8 {
     float: right;
     padding-right: 2%;
     width: 23%;
 }
 /*Newsletter block (on the home page)*/
-.pane-newsletter-newsletter-subscribe {
+.front .pane-newsletter-newsletter-subscribe {
     float: right;
     padding-left: 2%;
     padding-right: 4%;
