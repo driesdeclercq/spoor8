@@ -751,22 +751,26 @@ ul.pager li a {
    /* max-height: 467px;
     margin: 0 auto;*/
 }
+.row-session-featured {
+  position: relative;
+}
 .front .featured-title-outer-wrapper {
     position: absolute;
     top: 37%;
     width: 100%;
 }
 .front .featured-title-wrapper {
+
     max-width: 1052px;
     margin: 0 auto;
     padding: 14px;
 }
 .front .featured-title {
     border-right: 1px solid #fff;
-    color: white;    
+    color: white;
     display: inline-block;
-    line-height: 55px;    
-    font-size: 30px;    
+    line-height: 55px;
+    font-size: 30px;
     font-family: 'Francois One', sans-serif;
     font-weight: normal;
     padding-left: 5%;
@@ -791,7 +795,7 @@ ul.pager li a {
     text-transform: uppercase;
     padding: 5px 10px;
     vertical-align: 5px;
-    width: auto;    
+    width: auto;
 }
 
 /*Latest news block (on the home page)*/
@@ -803,8 +807,8 @@ ul.pager li a {
     display: inline-block;
     font-family: 'Francois One', sans-serif;
     font-size: 14px;
-    font-weight: normal;    
-    text-transform: uppercase;    
+    font-weight: normal;
+    text-transform: uppercase;
     padding-right: 3px;
 }
 .front .pane-views-news-block-2 .views-field-title {
@@ -812,7 +816,7 @@ ul.pager li a {
     font-family: 'Francois One', sans-serif;
     font-size: 14px;
     font-weight: normal;
-    text-transform: uppercase;    
+    text-transform: uppercase;
     margin: 0 0 5px 0;
 }
 
@@ -832,7 +836,7 @@ ul.pager li a {
 }
 .front .pane-views-news-block-2 .more-link{
     padding-top: 10px;
-    text-align: left;    
+    text-align: left;
 }
 .front .pane-views-news-block-2 .more-link a {
     background-color: #797b49;
@@ -845,7 +849,7 @@ ul.pager li a {
     padding: 5px 10px;
     text-decoration: none;
     text-transform: uppercase;
-    width: auto;    
+    width: auto;
 }
 .front .pane-views-news-block-2 .more-link a:hover {
     background: #65663f;

@@ -500,6 +500,9 @@
     width: 42%;
 }
 /*featured session view*/
+.block-mobile-sessions {
+  display: none;
+}
 .front #block-views-sessions-block-session-featured {
     display: block;
 }
