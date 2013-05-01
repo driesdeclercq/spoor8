@@ -21,6 +21,9 @@ body.front .l-container-wide,
 .block-mobile-sessions {
   display: none;
 }
+.front #block-views-sessions-block-session-featured {
+    display: block;
+}
 /* IE overrides */
 input {
   line-height: 25px;
