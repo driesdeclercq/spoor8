@@ -56,10 +56,6 @@ h1#logo,
    background: url('/sites/all/themes/spoor_acht/images/precontent_bg.png') left bottom repeat-x;
    padding-bottom: 20px;
  }
-#pre-content {
-   background: none;
-   padding-bottom: 0;
- }
 
 #content-wrapper {
   position: relative;

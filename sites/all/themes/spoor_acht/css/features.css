@@ -788,9 +788,8 @@ ul.pager li a {
     box-shadow: none;
     border-radius: 3px;
     color: #7c7a4a;
-    cursor: pointer;
-    font-family: Arvo, serif;
-    font-size: 10px;
+    cursor: pointer;font-family: Arvo, serif;
+    font-size: 12px;
     text-decoration: none;
     text-transform: uppercase;
     padding: 5px 10px;

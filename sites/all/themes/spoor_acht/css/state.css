@@ -492,6 +492,49 @@
   /* ==========================================================================
    Home page blocks
    ========================================================================== */
+  .block-mobile-sessions {
+    background: url('/sites/all/themes/spoor_acht/images/bg_news_group_news_body.png') left top repeat;
+    padding-top: 50px;
+    margin-bottom: 13px;
+  }
+  .view-sessions.mobile-sessions-home {
+    max-width: none;
+    width: 70%;
+    margin: 0 auto;
+  }
+  .view-sessions.mobile-sessions-home .more-link {
+    clear: both;
+  }
+  .view-sessions.mobile-sessions-home .session.views-row-odd,
+  .view-sessions.mobile-sessions-home .session {
+    float: left;
+    margin-bottom: 30px;
+    width: 31%;
+  }
+  .view-sessions.mobile-sessions-home .session.views-row-even,
+  .view-sessions.mobile-sessions-home .session.views-row-odd {
+    margin-right: 2%;
+  }
+
+  .view-sessions.mobile-sessions-home .session.views-row-last {
+    margin-right: none;
+  }
+  .view-sessions.mobile-sessions-home .home-session-mobile-overlay a {
+    height: 147px;
+    display: block;
+    overflow: hidden;
+  }
+  .view-sessions.mobile-sessions-home h2 {
+    font-size: 17px;
+    line-height: 1.2em;
+    margin: 0.4em 0 0.5em;
+    text-align: center;
+  }
+  .view-sessions.mobile-sessions-home h2 a {
+    color: #424242;
+    text-align: center;
+    text-decoration: none;
+  }
   /*Latest news block (on the home page)*/
 .front .pane-views-news-block-2 {
     float: left;
@@ -499,10 +542,7 @@
     padding-right: 4%;
     width: 42%;
 }
-/*featured session view*/
-.block-mobile-sessions {
-  display: none;
-}
+
 .front #block-views-sessions-block-session-featured {
     display: block;
 }
@@ -614,6 +654,12 @@
     position: absolute;
     left: 0;
     top: 360px;
+  }
+
+  .view-sessions.mobile-sessions-home {
+    max-width: none;
+    width: 52%;
+    margin: 0 auto;
   }
 }
 
