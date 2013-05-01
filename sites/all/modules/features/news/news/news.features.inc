@@ -49,10 +49,10 @@ function news_image_default_styles() {
         'module' => 'image',
         'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => '620',
-          'height' => '386',
+          'width' => 620,
+          'height' => 386,
         ),
-        'weight' => '1',
+        'weight' => 1,
       ),
     ),
   );

@@ -31,10 +31,10 @@ function users_image_default_styles() {
         'module' => 'image',
         'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => '104',
-          'height' => '93',
+          'width' => 104,
+          'height' => 93,
         ),
-        'weight' => '1',
+        'weight' => 1,
       ),
     ),
   );

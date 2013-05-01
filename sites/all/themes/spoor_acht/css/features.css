@@ -652,6 +652,60 @@ body.node-type-session #content-wrapper {
     padding-bottom: 0.9em;
     font-size: 18px;
 }
+/*featured session view*/
+.front #block-views-sessions-block-session-featured {
+    background: url('/sites/all/themes/spoor_acht/images/session_featured_bg.png') repeat-x;
+    background-position: bottom;
+    display: none;
+    padding-bottom: 7px;
+}
+.front .featured-session-image img {
+   /* max-height: 467px;
+    margin: 0 auto;*/
+}
+.front .featured-title-outer-wrapper {
+    position: absolute;
+    top: 37%;
+    width: 100%;
+}
+.front .featured-title-wrapper {
+    max-width: 1052px;
+    margin: 0 auto;
+    padding: 14px;
+}
+.front .featured-title {
+    border-right: 1px solid #fff;
+    color: white;    
+    display: inline-block;
+    line-height: 55px;    
+    font-size: 30px;    
+    font-family: 'Francois One', sans-serif;
+    font-weight: normal;
+    padding-left: 5%;
+    padding-right: 20px;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+.front .featured-view-session-link {
+    display: inline-block;
+    padding-left: 20px;
+}
+.front .featured-view-session-link a, .front .featured-view-session-link a:hover {
+    background: url('/sites/all/themes/spoor_acht/images/btn_session_featured_bg.png');
+    border: 1px solid #fff;
+    box-shadow: none;
+    border-radius: 3px;
+    color: #7c7a4a;
+    cursor: pointer;
+    font-family: Arvo, serif;
+    font-size: 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    vertical-align: 5px;
+    width: auto;    
+}
+
 /*Latest news block (on the home page)*/
 .front .pane-views-news-block-2 {
     width: 100%;
@@ -660,17 +714,17 @@ body.node-type-session #content-wrapper {
     color: #8D8D8D;
     display: inline-block;
     font-family: 'Francois One', sans-serif;
-    font-weight: normal;
-    text-transform: uppercase;
     font-size: 14px;
+    font-weight: normal;    
+    text-transform: uppercase;    
     padding-right: 3px;
 }
 .front .pane-views-news-block-2 .views-field-title {
     display: inline-block;
     font-family: 'Francois One', sans-serif;
-    font-weight: normal;
-    text-transform: uppercase;
     font-size: 14px;
+    font-weight: normal;
+    text-transform: uppercase;    
     margin: 0 0 5px 0;
 }
 
@@ -689,8 +743,8 @@ body.node-type-session #content-wrapper {
     text-decoration: none;
 }
 .front .pane-views-news-block-2 .more-link{
-    text-align: left;
     padding-top: 10px;
+    text-align: left;    
 }
 .front .pane-views-news-block-2 .more-link a {
     background-color: #797b49;
@@ -700,10 +754,10 @@ body.node-type-session #content-wrapper {
     color: #efefef;
     cursor: pointer;
     font-family: Arvo, serif;
+    padding: 5px 10px;
     text-decoration: none;
     text-transform: uppercase;
-    width: auto;
-    padding: 5px 10px;
+    width: auto;    
 }
 .front .pane-views-news-block-2 .more-link a:hover {
     background: #65663f;

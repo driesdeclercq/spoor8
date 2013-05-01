@@ -459,6 +459,10 @@
     padding-right: 4%;
     width: 42%;
 }
+/*featured session view*/
+.front #block-views-sessions-block-session-featured {
+    display: block;
+}
 /*Latest tweets block (on the home page)*/
 .front .pane-block-8 {
     float: right;

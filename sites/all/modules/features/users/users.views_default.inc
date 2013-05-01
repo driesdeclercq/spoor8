@@ -101,7 +101,6 @@ function users_views_default_views() {
 
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block_crew');
-  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['block_description'] = 'Crew list';
   $handler->display->display_options['block_caching'] = '-1';
   $export['crew'] = $view;

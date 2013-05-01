@@ -13,11 +13,11 @@ function news_taxonomy_default_vocabularies() {
       'name' => 'News item',
       'machine_name' => 'news_item',
       'description' => 'Vocabulary for news items',
-      'hierarchy' => '0',
+      'hierarchy' => 0,
       'module' => 'taxonomy',
-      'weight' => '0',
+      'weight' => 0,
       'language' => 'und',
-      'i18n_mode' => '4',
+      'i18n_mode' => 4,
       'rdf_mapping' => array(
         'rdftype' => array(
           0 => 'skos:ConceptScheme',

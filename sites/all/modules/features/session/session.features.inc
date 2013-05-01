@@ -49,10 +49,10 @@ function session_image_default_styles() {
         'module' => 'image',
         'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => '252',
-          'height' => '147',
+          'width' => 252,
+          'height' => 147,
         ),
-        'weight' => '1',
+        'weight' => 1,
       ),
       8 => array(
         'label' => 'Overlay (watermark)',
@@ -66,10 +66,10 @@ function session_image_default_styles() {
         'data' => array(
           'xpos' => 0,
           'ypos' => 0,
-          'alpha' => '100',
+          'alpha' => 100,
           'path' => 'theme://spoor_acht/images/session_overlay_252x147.png',
         ),
-        'weight' => '2',
+        'weight' => 2,
       ),
     ),
   );
@@ -88,10 +88,10 @@ function session_image_default_styles() {
         'module' => 'image',
         'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => '252',
-          'height' => '147',
+          'width' => 252,
+          'height' => 147,
         ),
-        'weight' => '1',
+        'weight' => 1,
       ),
     ),
   );
@@ -110,10 +110,10 @@ function session_image_default_styles() {
         'module' => 'image',
         'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => '560',
-          'height' => '315',
+          'width' => 560,
+          'height' => 315,
         ),
-        'weight' => '1',
+        'weight' => 1,
       ),
     ),
   );
@@ -132,10 +132,10 @@ function session_image_default_styles() {
         'module' => 'image',
         'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => '279',
-          'height' => '163',
+          'width' => 279,
+          'height' => 163,
         ),
-        'weight' => '1',
+        'weight' => 1,
       ),
     ),
   );
@@ -154,10 +154,10 @@ function session_image_default_styles() {
         'module' => 'image',
         'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => '1440',
-          'height' => '440',
+          'width' => 1440,
+          'height' => 440,
         ),
-        'weight' => '1',
+        'weight' => 1,
       ),
     ),
   );
@@ -176,10 +176,10 @@ function session_image_default_styles() {
         'module' => 'image',
         'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => '90',
-          'height' => '50',
+          'width' => 90,
+          'height' => 50,
         ),
-        'weight' => '1',
+        'weight' => 1,
       ),
     ),
   );
