@@ -426,7 +426,7 @@
     position: relative;
   }
   .node-session.view-mode-full .field-session-video .video-wrapper {
-    background-color: teal;
+    background-color: #fff;
     position: relative;
     padding-bottom: 56.25%; /* 16:9 */
     height: 0;

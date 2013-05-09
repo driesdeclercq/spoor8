@@ -156,7 +156,18 @@
     padding: 10px 36px;
     height: 36px;
     font-size: 16px;
-    background-color: green;
+    background-color: #797b49;
+    border: 0;
+    box-shadow: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-family: Arvo, serif;
+    text-decoration: none;
+    text-transform: uppercase;
+
+}
+#contact input[type="submit"]:active {
+    background: #65663f;
 }
 
 /* Mobile toolbar container */
@@ -283,7 +294,7 @@ body.node-type-session #content-wrapper {
     margin: -0.1em auto 0;
 }
 .node-session.view-mode-full .field-session-video .video-wrapper {
-    background-color: teal;
+    background-color: #fff;
     position: relative;
     padding-bottom: 56.25%; /* 16:9 */
     height: 0;
@@ -294,6 +305,11 @@ body.node-type-session #content-wrapper {
     left: 0;
     width: 100%;
     height: 100%;
+}
+.loading-image {
+  position: absolute;
+  left: 40%;
+  top: 30%;
 }
 .node-session.view-mode-full .field-name-field-intro-text {
     padding-top: 20px;
@@ -748,8 +764,8 @@ ul.pager li a {
     padding-bottom: 7px;
 }
 .front .featured-session-image img {
-   /* max-height: 467px;
-    margin: 0 auto;*/
+    margin: 0 auto;
+    width: 100% !important;
 }
 .row-session-featured {
   position: relative;
@@ -781,19 +797,20 @@ ul.pager li a {
 .front .featured-view-session-link {
     display: inline-block;
     padding-left: 20px;
+    vertical-align: 5px;
 }
 .front .featured-view-session-link a, .front .featured-view-session-link a:hover {
     background: url('/sites/all/themes/spoor_acht/images/btn_session_featured_bg.png');
     border: 1px solid #fff;
     box-shadow: none;
     border-radius: 3px;
+    display: block;
     color: #7c7a4a;
     cursor: pointer;font-family: Arvo, serif;
     font-size: 12px;
     text-decoration: none;
     text-transform: uppercase;
     padding: 5px 10px;
-    vertical-align: 5px;
     width: auto;
 }
 

@@ -20,7 +20,7 @@ stylesheets[all][] = css/base.css
 stylesheets[all][] = css/layout.css
 stylesheets[all][] = css/features.css
 stylesheets[all][] = css/state.css
-stylesheets-conditional[lte IE 8][all][] = css/lte-ie8.css
+stylesheets-conditional[lte IE 9][all][] = css/lte-ie9.css
 
 ; Javascripts.
 ;scripts[] = js/jquery.featureCarousel.min.js

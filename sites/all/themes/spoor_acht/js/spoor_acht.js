@@ -30,6 +30,10 @@
         Drupal.mobileToolbar.enable();
       }
     }
+    // Function to hide ajax-loader on video iframe    
+    $('iframe').load(function () {
+      $('.loading-image').hide();
+    });
   });
 
   $(window).resize(function() {
