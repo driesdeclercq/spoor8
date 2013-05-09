@@ -66,6 +66,21 @@
   h3.crew-member {
     padding-top: 17px;
   }
+
+  .view-sessions .session .group-left {
+    width: 60%;
+    max-width: 279px;
+    margin-right: 4.5343035%;
+    float: left;
+}
+.view-sessions .session .group-right {
+    width: 33.4719335%;
+    float: left;
+}
+
+.view-sessions .session .group-right h2 {
+    margin: 0 0 0.5em;
+}
 }
 
 /* ==========================================================================

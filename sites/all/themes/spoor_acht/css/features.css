@@ -478,12 +478,14 @@ ul.pager li a {
     position: relative;
 }
 .view-sessions .session .group-left {
-    width: 60%;
+    width: 64%;
     max-width: 279px;
-    margin-right: 4.5343035%
+    margin-right: 4.5343035%;
+    float: none;
 }
 .view-sessions .session .group-right {
-    width: 33.4719335%;
+    width: 76%;
+    float: none;
 }
 .view-sessions .session .group-right > .field {
     margin-bottom: 0;
@@ -506,7 +508,7 @@ ul.pager li a {
 .view-sessions .session .group-right h2 {
     font-size: 17px;
     line-height: 1.2em;
-    margin: 0 0 0.5em;
+    margin: 1em 0 0.5em;
 }
 .view-sessions .session .group-right p {
     color: #767676;
