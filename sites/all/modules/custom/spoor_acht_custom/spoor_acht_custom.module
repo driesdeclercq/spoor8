@@ -47,13 +47,14 @@ function spoor_acht_custom_ajax_callback($js) {
   print ajax_render($commands);
   exit;  // Exit so Drupal doesn't have a chance to build a whole page.
 }
+
 function spoor_acht_custom_ajax_slideshow_callback($js) {
   // Get the views block rendered content.
   $block = views_embed_view('sessions', 'block_homepage_slideshow');
 
   // Prepare an ajax command for our ajax wrapper.
   $commands = array();
-  $commands[] = ajax_command_html('#pre-content .region', $block);
+  $commands[] = ajax_command_append('#pre-content .region', $block);
 
   // Render the commands into JSON and print them.
   print ajax_render($commands);

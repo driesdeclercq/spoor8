@@ -109,7 +109,7 @@ function session_field_default_field_instances() {
         'class' => '',
         'configurable_title' => 0,
         'rel' => '',
-        'target' => 'default',
+        'target' => '_blank',
         'title' => '[current-page:title] on Facebook',
       ),
       'display' => array(
@@ -178,7 +178,7 @@ function session_field_default_field_instances() {
         'class' => '',
         'configurable_title' => 0,
         'rel' => '',
-        'target' => 'default',
+        'target' => '_blank',
         'title' => '[current-page:title] on Soundcloud',
       ),
       'display' => array(
@@ -316,7 +316,7 @@ function session_field_default_field_instances() {
         'class' => '',
         'configurable_title' => 0,
         'rel' => '',
-        'target' => 'default',
+        'target' => '_blank',
         'title' => '[current-page:title] site',
       ),
       'display' => array(

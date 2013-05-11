@@ -49,6 +49,8 @@
       Drupal.spoorAcht.setSessionBackground();
     }
     else {
+      Drupal.homeSessions.initialize();
+
       Drupal.mobileToolbar.disable();
       if ($(window).width() < Drupal.breakpoints.large) {
         Drupal.spoorAcht.setSessionBackground();
@@ -251,39 +253,51 @@
 
   Drupal.homeSessions.initialize = function() {
     if ($(window).width() >= Drupal.breakpoints.medium) {
-      // If on homepage, load the featured session and session carousel.
-      var ajaxUrl = new Array('featured', 'slideshow');
-      var prefix = '/spoor_acht_custom-ajax/nojs/';
+      if (!$("#featured-session").hasClass('loaded')) {
+        // If on homepage, load the featured session and session carousel.
+        var ajaxUrl = new Array('featured', 'slideshow');
+        var prefix = '/spoor_acht_custom-ajax/nojs/';
 
-      for (i = 0; i < ajaxUrl.length; i++) {
-        $.getJSON(prefix + ajaxUrl[i], function(response) {
-          if (response[1].data  && response[1].selector) {
-            // Set the block.
-            var sessions = $(response[1].selector)
-              .html(response[1].data)
-              .find('.slideshow-sessions-home .view-content');
-            // If its the slideshow, apply caroufredsel.
-            if (sessions.length) {
-              sessions.parent().append('<div id="prev">P</div><div id="next">N</div>');
-              sessions.carouFredSel({
-                responsive: true,
-                circular: true,
-                infinite: false,
-                auto: false,
-                prev: '#prev',
-                next: '#next',
-                items: {
-                  visible: {
-                    min: 2,
-                    max: 5
-                  },
-                  width: 211,
-                  height: '72.2464454976%'
-                }
-              });
+        for (i = 0; i < ajaxUrl.length; i++) {
+          $.getJSON(prefix + ajaxUrl[i], function(response) {
+            console.log(response[1]);
+            if (response[1].data  && response[1].selector) {
+              // Set the block.
+              if (response[1].method =='append') {
+                var sessions = $(response[1].selector)
+                  .append(response[1].data)
+                  .find('.slideshow-sessions-home .view-content');
+              }
+              else {
+                var sessions = $(response[1].selector)
+                  .html(response[1].data)
+                  .find('.slideshow-sessions-home .view-content');
+              }
+
+              // If its the slideshow, apply caroufredsel.
+              if (sessions.length) {
+                sessions.parent().append('<div id="prev">Prev</div><div id="next">Next</div>');
+                sessions.carouFredSel({
+                  responsive: true,
+                  circular: false,
+                  infinite: false,
+                  auto: false,
+                  prev: '#prev',
+                  next: '#next',
+                  items: {
+                    visible: {
+                      min: 2,
+                      max: 5
+                    },
+                    width: 211,
+                    height: '72.2464454976%'
+                  }
+                });
+              }
             }
-          }
-        });
+          });
+        }
+        $("#featured-session").addClass('loaded');
       }
     }
   }

@@ -369,6 +369,14 @@
     margin-bottom: 0;
   }
 
+
+  .mobile-sessions-home {
+    display: none;
+  }
+  .view-sessions.slideshow-sessions-home {
+    display: block;
+  }
+
   /**
    * Content
   */
@@ -507,12 +515,16 @@
   /* ==========================================================================
    Home page blocks.
    ========================================================================== */
+  #featured-session {
+    display: block;
+  }
   .block-mobile-sessions {
     background: url('/sites/all/themes/spoor_acht/images/bg_news_group_news_body.png') left top repeat;
     padding-top: 50px;
     margin-bottom: 13px;
   }
   .view-sessions.mobile-sessions-home {
+    display: none;
     max-width: none;
     width: 70%;
     max-width: 840px;
@@ -571,6 +583,7 @@
   .pane-newsletter-newsletter-subscribe {
     float: right;
     width: 16.2109375%; /* 1024 / 166 */
+    margin: 0;
   }
   .panels-flexible-region-1-center {
     width: 100% !important;
@@ -686,10 +699,10 @@
 /* ==========================================================================
    Responsive: wide
    ========================================================================== */
-@media only screen and (min-width: 1054px), print {
+@media only screen and (min-width: 1134px), print {
   .view-sessions.slideshow-sessions-home {
     max-width: 1054px;
-    margin: 20px auto;
+    margin: 0 auto 20px;
     position: relative;
 }
 }

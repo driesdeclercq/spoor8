@@ -756,10 +756,10 @@ ul.pager li a {
    Home page blocks
    ========================================================================== */
 .front h2.pane-title {
-  margin: 1.1em 0 1.1em;
+  margin: 1em 0 1.1em;
   border-bottom: 1px solid #ccc;
   padding-bottom: 0.9em;
-  font-size: 18px;
+  font-size: 24px;
 }
 /*featured session view*/
 #block-views-sessions-block-session-featured {
@@ -768,6 +768,7 @@ ul.pager li a {
 #featured-session {
   background: url('/sites/all/themes/spoor_acht/images/session_featured_bg.png') repeat-x;
   background-position: bottom;
+  display: none;
   padding-bottom: 7px;
 }
 .featured-session-image img {
@@ -862,6 +863,7 @@ ul.pager li a {
 .pane-views-news-block-2 .more-link {
   padding-top: 10px;
   text-align: left;
+  margin-top: 10px;
 }
 .pane-views-news-block-2 .more-link a {
   background-color: #797b49;
@@ -879,9 +881,13 @@ ul.pager li a {
 .pane-views-news-block-2 .more-link a:hover {
   background: #65663f;
 }
-
+.pane-newsletter-newsletter-subscribe {
+  margin: 60px 0;
+}
 .pane-newsletter-newsletter-subscribe input[type="text"] {
-  max-width: 100%;
+  width: 100%;
+  max-width: 340px;
+  margin: 6px 0;
 }
 
 /* ==========================================================================
@@ -1136,8 +1142,20 @@ a.big-button:hover, .big-button a:hover {
   text-align: center;
   text-decoration: none;
 }
+.view-sessions.mobile-sessions-home .session-image-wrapper {
+  background-color: #f0f0f0;
+  max-width: 279px;
+  box-shadow: 2px 2px 2px rgba(0,0,0,0.3), -1px -1px 2px rgba(0,0,0,0.2);
+  border-radius: 6px;
+  padding: 10px;
+}
 /* Homepage session carousel */
+.region-precontent {
+  background: url(../images/bg_news_group_news_body.png);
+  padding-top: 20px;
+}
 .view-sessions.slideshow-sessions-home {
+  display: none;
   position: relative;
   margin: 20px 50px;
 }
@@ -1167,7 +1185,7 @@ a.big-button:hover, .big-button a:hover {
 .view-sessions.slideshow-sessions-home #prev,
 .view-sessions.slideshow-sessions-home #next {
   position: absolute;
-  top: 46%;
+  top: 28%;
   text-indent: -9999px;
   cursor: pointer;
 }
@@ -1176,4 +1194,7 @@ a.big-button:hover, .big-button a:hover {
 }
 .view-sessions.slideshow-sessions-home #next {
   right: -40px;
+}
+.view-sessions.slideshow-sessions-home .more-link {
+  margin: 45px auto 0;
 }

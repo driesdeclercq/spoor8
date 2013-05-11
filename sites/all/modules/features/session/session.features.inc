@@ -39,7 +39,7 @@ function session_image_default_styles() {
   $styles['home_session_overlay'] = array(
     'name' => 'home_session_overlay',
     'effects' => array(
-      7 => array(
+      9 => array(
         'label' => 'Scale and crop',
         'help' => 'Scale and crop will maintain the aspect-ratio of the original image, then crop the larger dimension. This is most useful for creating perfectly square thumbnails without stretching the image.',
         'effect callback' => 'image_scale_and_crop_effect',
@@ -54,7 +54,7 @@ function session_image_default_styles() {
         ),
         'weight' => 1,
       ),
-      8 => array(
+      10 => array(
         'label' => 'Overlay (watermark)',
         'help' => 'Choose the file image you wish to use as an overlay, and position it in a layer on top of the canvas.',
         'effect callback' => 'canvasactions_file2canvas_image',
@@ -67,9 +67,31 @@ function session_image_default_styles() {
           'xpos' => 0,
           'ypos' => 0,
           'alpha' => 100,
-          'path' => 'theme://spoor_acht/images/session_overlay_252x147.png',
+          'path' => 'theme://spoor_acht/images/play_btn_overlay.png',
         ),
         'weight' => 2,
+      ),
+    ),
+  );
+
+  // Exported image style: homepage_featured.
+  $styles['homepage_featured'] = array(
+    'name' => 'homepage_featured',
+    'effects' => array(
+      7 => array(
+        'label' => 'Scale and crop',
+        'help' => 'Scale and crop will maintain the aspect-ratio of the original image, then crop the larger dimension. This is most useful for creating perfectly square thumbnails without stretching the image.',
+        'effect callback' => 'image_scale_and_crop_effect',
+        'dimensions callback' => 'image_resize_dimensions',
+        'form callback' => 'image_resize_form',
+        'summary theme' => 'image_resize_summary',
+        'module' => 'image',
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 1920,
+          'height' => 467,
+        ),
+        'weight' => 1,
       ),
     ),
   );
