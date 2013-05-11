@@ -520,7 +520,7 @@
   }
   .block-mobile-sessions {
     background: url('/sites/all/themes/spoor_acht/images/bg_news_group_news_body.png') left top repeat;
-    padding-top: 50px;
+    padding-top: 40px;
     margin-bottom: 13px;
   }
   .view-sessions.mobile-sessions-home {
@@ -704,7 +704,7 @@
     max-width: 1054px;
     margin: 0 auto 20px;
     position: relative;
-}
+  }
 }
 
 /* ==========================================================================
