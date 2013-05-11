@@ -25,5 +25,5 @@ stylesheets-conditional[lte IE 9][all][] = css/lte-ie9.css
 ; Javascripts.
 ;scripts[] = js/jquery.featureCarousel.min.js
 scripts[] = js/jquery.carouFredSel-6.1.0-packed.js
-scripts[] = js/jquery.infieldlabel.js
+scripts[] = js/jquery.infieldlabel.min.js
 scripts[] = js/spoor_acht.js

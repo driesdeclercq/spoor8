@@ -40,6 +40,12 @@
     <div id="mobile-toolbar" class="l-container-wide hidden clearfix"></div>
 
     <div id="content-wrapper" class="l-container-wide clearfix">
+      <?php if ($page['precontent']): ?>
+        <div id="pre-content" class="l-container-wide hidden clearfix">
+          <div id="featured-session"></div>
+          <?php print render($page['precontent']); ?>
+        </div>
+      <?php endif; ?>
       <div id="content" class="l-container clearfix">
         <?php if ($messages): ?>
           <div id="messages" class="clearfix">

@@ -2,7 +2,7 @@
  * @file
  *
  * Used for dynamic styling and responsive code.
- */
+*/
 
 
 /* ==========================================================================
@@ -11,44 +11,44 @@
 @media only screen and (min-width: 320px), print {
   /* Share buttons */
   .addthis_32x32_style .dummy .at300bs, .addthis_32x32_style .at300bs, .addthis_32x32_style .at15t {
-      background: url(../images/share_buttons.png) no-repeat left;
-      overflow: hidden;
-      display: block;
-      height: 30px!important;
-      width: 30px!important;
-      line-height: 30px!important;
+    background: url(../images/share_buttons.png) no-repeat left;
+    overflow: hidden;
+    display: block;
+    height: 30px!important;
+    width: 30px!important;
+    line-height: 30px!important;
   }
   .at300bs:hover {
-      opacity: 1;
+    opacity: 1;
   }
   .addthis_32x32_style .at15t_facebook {
-      background-position: 0 0 !important;
+    background-position: 0 0 !important;
   }
   .addthis_32x32_style .at15t_facebook:hover {
-      background-position: 0 -30px !important;
+    background-position: 0 -30px !important;
   }
   .addthis_32x32_style .at15t_twitter {
-      background-position: -30px 0 !important;
+    background-position: -30px 0 !important;
   }
   .addthis_32x32_style .at15t_twitter:hover {
-      background-position: -30px -30px !important;
+    background-position: -30px -30px !important;
   }
   .at_PinItButton {
-      display: block;
-      width: 30px;
-      height: 30px;
-      padding: 0;
-      margin: 0;
-      background: url(../images/share_buttons.png) -60px 0 no-repeat;
+    display: block;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    margin: 0;
+    background: url(../images/share_buttons.png) -60px 0 no-repeat;
   }
   .at_PinItButton:hover {
-      background-position: -60px -30px;
+    background-position: -60px -30px;
   }
   .addthis_32x32_style .at15t_google_plusone_share {
-      background-position: -90px 0 !important;
+    background-position: -90px 0 !important;
   }
   .addthis_32x32_style .at15t_google_plusone_share:hover {
-      background-position: -90px -30px !important;
+    background-position: -90px -30px !important;
   }
 }
 
@@ -67,20 +67,20 @@
     padding-top: 17px;
   }
 
-  .view-sessions .session .group-left {
+  .view-sessions.page-sessions .session .group-left {
     width: 60%;
     max-width: 279px;
     margin-right: 4.5343035%;
     float: left;
-}
-.view-sessions .session .group-right {
+  }
+  .view-sessions.page-sessions .session .group-right {
     width: 33.4719335%;
     float: left;
-}
+  }
 
-.view-sessions .session .group-right h2 {
+  .view-sessions.page-sessions .session .group-right h2 {
     margin: 0 0 0.5em;
-}
+  }
 }
 
 /* ==========================================================================
@@ -121,7 +121,7 @@
 
   /*
    * Header
-   */
+  */
   /* Positioning */
   #navigation {
     margin-top: 83px;
@@ -371,7 +371,7 @@
 
   /**
    * Content
-   */
+  */
   h1 {
     margin: 1.2em 0 0.8em;
   }
@@ -398,11 +398,11 @@
   }
 
   /* Sessions Overview */
-  .view-sessions .session {
+  .view-sessions.page-sessions  .session {
     float: left;
     width: 46.9726562%;
   }
-  .view-sessions .session.views-row-odd {
+  .view-sessions.page-sessions  .session.views-row-odd {
     margin-right: 5.9570312%;
     margin-bottom: 65px;
   }
@@ -555,40 +555,39 @@
   .view-sessions.mobile-sessions-home .session .session-image-wrapper {
     padding: 6px;
   }
-  /*Latest news block (on the home page)*/
-.front .pane-views-news-block-2 {
-    float: left;
-    padding-left: 4%;
-    padding-right: 4%;
-    width: 42%;
-}
 
-.front #block-views-sessions-block-session-featured {
-    display: block;
-}
-/*Latest tweets block (on the home page)*/
-.front .pane-block-8 {
+  /* Latest news block */
+  .pane-views-news-block-2 {
+    float: left;
+    width: 47.265625%;  /* 1024 / 484 */
+  }
+  /* Latest tweets block */
+  .pane-block-8 {
     float: right;
-    padding-right: 2%;
-    width: 23%;
-}
-/*Newsletter block (on the home page)*/
-.front .pane-newsletter-newsletter-subscribe {
+    margin: 0 5.2734375%;
+    width: 25.9765625%; /* 1024 / 266 */
+  }
+  /* Newsletter block */
+  .pane-newsletter-newsletter-subscribe {
     float: right;
-    padding-left: 2%;
-    padding-right: 4%;
-    width: 19%;
-}
+    width: 16.2109375%; /* 1024 / 166 */
+  }
+  .panels-flexible-region-1-center {
+    width: 100% !important;
+  }
+  .panel-separator {
+    display: none;
+  }
 
   /**
    * Footer
-   */
+  */
   #sticky-wrapper {
-   min-height: 100%;
-   height: auto !important;
-   height: 100%;
-   margin: 0 auto -63px;
-   }
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -63px;
+  }
   #footer-wrapper,
   .push {
     height: 63px;
@@ -687,7 +686,12 @@
 /* ==========================================================================
    Responsive: wide
    ========================================================================== */
-@media only screen and (min-device-width: 1400px), print {
+@media only screen and (min-width: 1054px), print {
+  .view-sessions.slideshow-sessions-home {
+    max-width: 1054px;
+    margin: 20px auto;
+    position: relative;
+}
 }
 
 /* ==========================================================================

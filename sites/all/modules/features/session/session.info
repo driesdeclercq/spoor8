@@ -53,6 +53,7 @@ features[field_group][] = group_band_links|node|session|form
 features[field_group][] = group_band_links|node|session|full
 features[field_group][] = group_session_band_pictures|node|session|form
 features[field_group][] = group_session_info|node|session|form
+<<<<<<< Updated upstream
 features[field_instance][] = node-session-field_addthis
 features[field_instance][] = node-session-field_band_facebook
 features[field_instance][] = node-session-field_band_soundcloud
@@ -66,6 +67,8 @@ features[field_instance][] = node-session-field_session_text
 features[field_instance][] = node-session-field_share_this_session
 features[field_instance][] = node-session-field_video
 features[field_instance][] = node-session-field_video_vimeo_id
+=======
+>>>>>>> Stashed changes
 features[image][] = home_session_overlay
 features[image][] = mobile_home_session
 features[image][] = session_detail

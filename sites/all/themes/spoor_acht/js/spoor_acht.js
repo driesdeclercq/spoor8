@@ -13,15 +13,23 @@
   Drupal.mobileToolbar.types = 'search navigation';
 
   Drupal.spoorAcht = {};
-
   Drupal.slideShow = {};
+  Drupal.homeSessions = {};
 
   $(document).ready(function() {
+    Drupal.homeSessions.initialize();
+
     Drupal.spoorAcht.setContactToggle();
     // Show or initialize the slideshow.
       Drupal.slideShow.enable();
     // Initialise the mobile toolbar.
     Drupal.mobileToolbar.initialise();
+
+    // Function to hide ajax-loader on video iframe
+    $('iframe').load(function () {
+      $('.loading-image').hide();
+    });
+
 
     // Check the current window width for mobile menu;
     if ($(window).width() < Drupal.breakpoints.medium) {
@@ -30,10 +38,6 @@
         Drupal.mobileToolbar.enable();
       }
     }
-    // Function to hide ajax-loader on video iframe    
-    $('iframe').load(function () {
-      $('.loading-image').hide();
-    });
   });
 
   $(window).resize(function() {
@@ -171,45 +175,45 @@
    * Enable slideshow
    **/
   Drupal.slideShow.enable = function() {
-    $('#session-carousel').carouFredSel({
-      responsive: true,
-      circular: false,
-      auto: false,
-      items: {
-        visible: 1,
-        width: 560,
-        height: '56.25%'
-      },
-      scroll: {
-        fx: 'directscroll'
-      }
-    });
-
-    $('#session-thumbs').carouFredSel({
-      responsive: true,
-      circular: true,
-      infinite: false,
-      auto: false,
-      prev: '#prev',
-      next: '#next',
-      items: {
-        visible: {
-          min: 2,
-          max: 5
+    if ($('#session-carousel').length) {
+      $('#session-carousel').carouFredSel({
+        responsive: true,
+        circular: false,
+        auto: false,
+        items: {
+          visible: 1,
+          width: 560,
+          height: '56.25%'
         },
-        width: 90,
-        height: '55.5555556%'
-      }
-    });
+        scroll: {
+          fx: 'directscroll'
+        }
+      });
 
-    $('#session-thumbs div.thumb-toggle').click(function() {
-      console.log($(this));
-      console.log(this.id.split('id-').pop());
-      $('#session-carousel').trigger('slideTo', '#' + this.id.split('id-').pop());
-      $('#session-thumbs a').removeClass('selected');
-      $(this).addClass('selected');
-      return false;
-    });
+      $('#session-thumbs').carouFredSel({
+        responsive: true,
+        circular: true,
+        infinite: false,
+        auto: false,
+        prev: '#prev',
+        next: '#next',
+        items: {
+          visible: {
+            min: 2,
+            max: 5
+          },
+          width: 90,
+          height: '55.5555556%'
+        }
+      });
+
+      $('#session-thumbs div.thumb-toggle').click(function() {
+        $('#session-carousel').trigger('slideTo', '#' + this.id.split('id-').pop());
+        $('#session-thumbs a').removeClass('selected');
+        $(this).addClass('selected');
+        return false;
+      });
+    }
   }
 
   /**
@@ -245,4 +249,42 @@
     $("#mobile-toolbar").addClass('hidden');
   }
 
+  Drupal.homeSessions.initialize = function() {
+    if ($(window).width() >= Drupal.breakpoints.medium) {
+      // If on homepage, load the featured session and session carousel.
+      var ajaxUrl = new Array('featured', 'slideshow');
+      var prefix = '/spoor_acht_custom-ajax/nojs/';
+
+      for (i = 0; i < ajaxUrl.length; i++) {
+        $.getJSON(prefix + ajaxUrl[i], function(response) {
+          if (response[1].data  && response[1].selector) {
+            // Set the block.
+            var sessions = $(response[1].selector)
+              .html(response[1].data)
+              .find('.slideshow-sessions-home .view-content');
+            // If its the slideshow, apply caroufredsel.
+            if (sessions.length) {
+              sessions.parent().append('<div id="prev">P</div><div id="next">N</div>');
+              sessions.carouFredSel({
+                responsive: true,
+                circular: true,
+                infinite: false,
+                auto: false,
+                prev: '#prev',
+                next: '#next',
+                items: {
+                  visible: {
+                    min: 2,
+                    max: 5
+                  },
+                  width: 211,
+                  height: '72.2464454976%'
+                }
+              });
+            }
+          }
+        });
+      }
+    }
+  }
 })(jQuery, Drupal);

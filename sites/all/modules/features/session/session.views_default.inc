@@ -57,7 +57,6 @@ function session_views_default_views() {
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  $handler->display->display_options['sorts']['created']['exposed'] = TRUE;
   $handler->display->display_options['sorts']['created']['expose']['label'] = 'Post date';
   $handler->display->display_options['sorts']['created']['granularity'] = 'minute';
   /* Sort criterion: Content: Title */
@@ -342,6 +341,7 @@ function session_views_default_views() {
   $handler->display->display_options['filters']['sticky']['table'] = 'node';
   $handler->display->display_options['filters']['sticky']['field'] = 'sticky';
   $handler->display->display_options['filters']['sticky']['value'] = '1';
+
   $export['sessions'] = $view;
 
   $view = new view();

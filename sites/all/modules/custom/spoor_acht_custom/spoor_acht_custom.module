@@ -16,3 +16,46 @@ function spoor_acht_custom_exposed_form_submit(&$form, &$form_state) {
   }
 }
 */
+
+function spoor_acht_custom_menu() {
+  $items['spoor_acht_custom-ajax/%/featured'] = array(
+    'access arguments' => array('access content'),
+    'page callback' => 'spoor_acht_custom_ajax_callback',
+    'page arguments' => array(1),
+    'type' => MENU_CALLBACK,
+  );
+
+  $items['spoor_acht_custom-ajax/%/slideshow'] = array(
+    'access arguments' => array('access content'),
+    'page callback' => 'spoor_acht_custom_ajax_slideshow_callback',
+    'page arguments' => array(1),
+    'type' => MENU_CALLBACK,
+  );
+
+  return $items;
+}
+
+function spoor_acht_custom_ajax_callback($js) {
+  // Get the views block rendered content.
+  $block = views_embed_view('sessions', 'block_session_featured');
+
+  // Prepare an ajax command for our ajax wrapper.
+  $commands = array();
+  $commands[] = ajax_command_html('#featured-session', $block);
+
+  // Render the commands into JSON and print them.
+  print ajax_render($commands);
+  exit;  // Exit so Drupal doesn't have a chance to build a whole page.
+}
+function spoor_acht_custom_ajax_slideshow_callback($js) {
+  // Get the views block rendered content.
+  $block = views_embed_view('sessions', 'block_homepage_slideshow');
+
+  // Prepare an ajax command for our ajax wrapper.
+  $commands = array();
+  $commands[] = ajax_command_html('#pre-content .region', $block);
+
+  // Render the commands into JSON and print them.
+  print ajax_render($commands);
+  exit;  // Exit so Drupal doesn't have a chance to build a whole page.
+}
