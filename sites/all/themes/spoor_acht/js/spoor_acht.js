@@ -284,7 +284,15 @@
                   auto: false,
                   prev: '#prev',
                   next: '#next',
+                  scroll: {
+                   items: 4,
+                   fx: "scroll",
+                   easing: "swing",
+                   duration: 500,
+                 },
+
                   items: {
+                    start: 1,
                     visible: {
                       min: 2,
                       max: 5
