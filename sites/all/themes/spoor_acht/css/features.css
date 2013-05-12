@@ -1202,3 +1202,8 @@ a.big-button:hover, .big-button a:hover {
 .view-sessions.slideshow-sessions-home .more-link {
   margin: 45px auto 0;
 }
+
+
+#messages {
+  display: none;
+}
