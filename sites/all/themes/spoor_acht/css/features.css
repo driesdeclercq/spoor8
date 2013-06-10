@@ -773,11 +773,10 @@ h2.pane-title {
   background: url('/sites/all/themes/spoor_acht/images/session_featured_bg.png') repeat-x;
   background-position: bottom;
   display: none;
-  padding-bottom: 7px;
+  padding-bottom: 4px;
 }
 .featured-session-image img {
-  margin: 0 auto;
-  width: 100% !important;
+  display: inline-block;
 }
 .row-session-featured {
   position: relative;
@@ -1203,7 +1202,28 @@ a.big-button:hover, .big-button a:hover {
   margin: 45px auto 0;
 }
 
-
-#messages {
-  display: none;
+#cboxPrevious,
+#cboxNext {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+}
+#cboxPrevious {
+  background-image: url('../images/colorbox-left.png');
+  background-position: 2% 50%;
+  left: 0;
+}
+#cboxNext {
+  background-image: url('../images/colorbox-right.png');
+  background-position: 98% 50%;
+  right: 0;
+}
+#cboxClose {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  max-width: 60px;
 }
